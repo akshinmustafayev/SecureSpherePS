@@ -1,0 +1,182 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereURLRewriteGroup</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereURLRewriteGroup</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Create a URL Rewrite Group.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereURLRewriteGroup -UrlRewriteGroupName &lt;String&gt; -URLRewriteRule &lt;URLRewriteRule or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereURLRewriteGroup -UrlRewriteGroupName &lt;String&gt; -URLRewriteRules &lt;URLRewriteRule[] or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Create a URL Rewrite Group.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$MathCriteria = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "no";
+    },
+    @{
+        "values"= @(
+            "druid",
+            "mage"
+        );
+        "type"= "httpRequestUrl";
+        "operation"= "atLeastOne";
+        "match"= "prefix";
+    }
+)
+
+$URLRewriteRule = [URLRewriteRule]::new()
+$URLRewriteRule.Name = "bingToGoogle"
+$URLRewriteRule.Priority = 1
+$URLRewriteRule.MatchCriteria = $MathCriteria
+$URLRewriteRule.HostToFind = "bing"
+$URLRewriteRule.HostToReplace = "google"
+$URLRewriteRule.PathToFind = "search"
+$URLRewriteRule.PathToReplace = "query"
+$URLRewriteRule.ApplyTo = "Request"
+$URLRewriteRule.Redirect = "NoRedirect"
+$URLRewriteRule.Enabled = $true
+
+New-SecureSphereURLRewriteGroup -UrlRewriteGroupName "some_group" -URLRewriteRule $URLRewriteRule
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$MathCriteria1 = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "no";
+    },
+    @{
+        "values"= @(
+            "druid",
+            "mage"
+        );
+        "type"= "httpRequestUrl";
+        "operation"= "atLeastOne";
+        "match"= "prefix";
+    }
+)
+
+$URLRewriteRule1 = [URLRewriteRule]::new()
+$URLRewriteRule1.Name = "bingToGoogle"
+$URLRewriteRule1.Priority = 1
+$URLRewriteRule1.MatchCriteria = $MathCriteria1
+$URLRewriteRule1.HostToFind = "bing"
+$URLRewriteRule1.HostToReplace = "google"
+$URLRewriteRule1.PathToFind = "search"
+$URLRewriteRule1.PathToReplace = "query"
+$URLRewriteRule1.ApplyTo = "Request"
+$URLRewriteRule1.Redirect = "NoRedirect"
+$URLRewriteRule1.Enabled = $true
+
+$MathCriteria2 = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "no";
+    },
+    @{
+        "values"= @(
+            "druid",
+            "mage"
+        );
+        "type"= "httpRequestUrl";
+        "operation"= "atLeastOne";
+        "match"= "prefix";
+    }
+)
+
+$URLRewriteRule2 = [URLRewriteRule]::new()
+$URLRewriteRule2.Name = "bingToFacebook"
+$URLRewriteRule2.Priority = 1
+$URLRewriteRule2.MatchCriteria = $MathCriteria2
+$URLRewriteRule2.HostToFind = "bing"
+$URLRewriteRule2.HostToReplace = "facebook"
+$URLRewriteRule2.PathToFind = "search"
+$URLRewriteRule2.PathToReplace = "query"
+$URLRewriteRule2.ApplyTo = "Request"
+$URLRewriteRule2.Redirect = "NoRedirect"
+$URLRewriteRule2.Enabled = $true
+
+[URLRewriteRule[]] $URLRewriteRuleList = @($URLRewriteRule1, $URLRewriteRule2)
+
+New-SecureSphereURLRewriteGroup -UrlRewriteGroupName "some_group" -URLRewriteRules $URLRewriteRuleList
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:UrlRewriteGroupName">-UrlRewriteGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the group.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:URLRewriteRule">-URLRewriteRule &lt;URLRewriteRule or custom Array or Json&gt;
+</p><p>This parameter specifies the URLRewriteRule.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:URLRewriteRules">-URLRewriteRules &lt;URLRewriteRule[] or custom Array or Json&gt;
+</p><p>This parameter specifies the array of URLRewriteRules.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>URLRewriteRule contains the following parameters:<BR/>1. Name - String value. Group name. This parameter is mandatory. <BR/>2. Priority - UInt32 value. Must be unique among rules in the same group. This parameter is mandatory. <BR/>3. HostToFind - String value. Defines the rewriting of the URL host and path, respectively.<BR/>4. HostToReplace - String value. This parameter is not mandatory. <BR/>5. PathToFind - String value. This parameter is not mandatory. <BR/>6. PathToReplace - String value. This parameter is not mandatory. <BR/>7. MatchCriteria - String value. This parameter is mandatory. See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/69940.htm for the details<BR/>8. ApplyTo  - String value. May accept only these (2) parameters: &quot;Request&quot; ; &quot;Response&quot; . This parameter is mandatory. <BR/>9. Redirect - String value. May accept only these (4) parameters: &quot;Original&quot; ; &quot;HTTP&quot; ; &quot;HTTPS&quot; ; &quot;NoRedirect&quot;. This parameter is mandatory. <BR/>10. Enabled - Boolean value. Enables or disables the rule. This parameter is mandatory.<BR/><BR/>Example:<BR/>$MathCriteria = @(<BR/>    @{<BR/>        &quot;type&quot;= &quot;authenticatedSession&quot;;<BR/>        &quot;value&quot;= &quot;no&quot;;<BR/>    },<BR/>    @{<BR/>        &quot;values&quot;= @(<BR/>            &quot;druid&quot;,<BR/>            &quot;mage&quot;<BR/>        );<BR/>        &quot;type&quot;= &quot;httpRequestUrl&quot;;<BR/>        &quot;operation&quot;= &quot;atLeastOne&quot;;<BR/>        &quot;match&quot;= &quot;prefix&quot;;<BR/>    }<BR/>)<BR/><BR/>$URLRewriteRule = [URLRewriteRule]::new()<BR/>$URLRewriteRule.Name = &quot;bingToGoogle&quot;<BR/>$URLRewriteRule.Priority = 1<BR/>$URLRewriteRule.MatchCriteria = $MathCriteria<BR/>$URLRewriteRule.HostToFind = &quot;bing&quot;<BR/>$URLRewriteRule.HostToReplace = &quot;google&quot;<BR/>$URLRewriteRule.PathToFind = &quot;search&quot;<BR/>$URLRewriteRule.PathToReplace = &quot;query&quot;<BR/>$URLRewriteRule.ApplyTo = &quot;Request&quot;<BR/>$URLRewriteRule.Redirect = &quot;NoRedirect&quot;<BR/>$URLRewriteRule.Enabled = $true</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10149 - Field &quot;redirect&quot; must be one of &quot;Original, HTTP, HTTPS, or NoRedirect&quot; OR Field &quot;applyTo&quot; must be one of &quot;Request, Response&quot;<BR/>IMP-10350 - Invalid regular expression: {fieldName}<BR/>IMP-10681 - Please specify the priority for this rule<BR/>IMP-10682 - Two rules or more have the same priority.</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/69940.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

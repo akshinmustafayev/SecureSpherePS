@@ -1,0 +1,141 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Start-SecureSphereDBTableGroupIncrementalOperations</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Start-SecureSphereDBTableGroupIncrementalOperations</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Performs an incremental operation (add/delete tables) on a table group.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Start-SecureSphereDBTableGroupIncrementalOperations -TableGroupName &lt;String&gt; [-Overwrite] -Records &lt;Array&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Start-SecureSphereDBTableGroupIncrementalOperations [-TableGroupName &lt;String&gt;] [-Records &lt;Array&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Performs an incremental operation (add/delete tables) on a table group. The delete operation requires only the table name.<BR/>In the add operation:<BR/>When new entry is added, if Type is not specified, the default is &quot;Table&quot;.<BR/>When entry is overwritten, if Type is not specified, it is not changed.<BR/>Table name is a must, otherwise an error will be issued.<BR/>If overwrite is true, columns will be overwritten with the received values. E.g. if empty columns are provided, all columns are removed from a table.<BR/>Columns are optional.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$Records = @(
+    @{
+        "action"  = "add";
+        "records" = @(
+            @{
+                "Name"    = "table1";
+                "Type"    = "Table";
+                "Columns" = @(
+                    "col1", "col2"
+                )
+            },
+            @{
+                "Name" = "table2"
+            }
+        )
+    },
+    @{
+        "action"  = "delete";
+        "records" = @(
+            @{"Name" = "table1"; }
+        )
+    }
+)
+
+Start-SecureSphereDBTableGroupIncrementalOperations -TableGroupName "my_table_group" -Overwrite $false -Records $Records
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$Records = @(
+    @{
+        "action"  = "add";
+        "records" = @(
+            @{
+                "Name"    = "table1";
+                "Type"    = "Table";
+                "Columns" = @(
+                    "col1", "col2"
+                )
+            },
+            @{
+                "Name" = "table2"
+            }
+        )
+    },
+    @{
+        "action"  = "delete";
+        "records" = @(
+            @{"Name" = "table1"; }
+        )
+    }
+)
+
+Start-SecureSphereDBTableGroupIncrementalOperations -TableGroupName "my_table_group" -Records $Records
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:TableGroupName">-TableGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the table group.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Overwrite">-Overwrite &lt;Boolean&gt;
+</p><p>When adding data to a table group that has existing data, indicates whether to overwrite the existing data. Default value=true. If the value=false, the new data is ignored.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Records">-Records &lt;Array&gt;
+</p><p>This parameter specifies data to perform operations.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-12201 - No table group with this name exists in the DB<BR/>IMP-12202 - The table group set data provided by the user contains a non-existing property name (not one of &quot;Name&quot;, &quot;Type&quot; or &quot;Columns&quot;)<BR/>IMP-12203 - The table group data provided by the user is missing the table name column<BR/>IMP-12204 - The table group data provided by the user contains two or more identical table name values<BR/>IMP-12205 - The table group data provided by the user contains more than one value for a table name<BR/>IMP-12206 - The table group data provided by the user contains an invalid table type<BR/>IMP-12207 - The table to delete does not exist<BR/>IMP-10021 - The number of records has passed the allowed limit – 50K (up to 11.5, may be subject to change in the future)<BR/>IMP-10087 - SecureSphere cannot create a file in its temporary directory</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61941.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

@@ -1,0 +1,137 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebPlugins</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebPlugins</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Updates the list of plugins of a web service (allows creating plugins, deleting plugins and updating existing plugins)</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebPlugins -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -WebServicePlugin &lt;WebServicePlugin&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebPlugins -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -WebServicePlugins &lt;WebServicePlugin[]&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Updates the list of plugins of a web service (allows creating plugins, deleting plugins and updating existing plugins)</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$WebServicePlugin = [WebServicePlugin]::new()
+$WebServicePlugin.PluginType = "Special Parameter Delimiter"
+$WebServicePlugin.PluginOrder = 1
+$WebServicePlugin.Separator = "+"
+
+Edit-SecureSphereWebPlugins -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -WebServicePlugin $WebServicePlugin
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$WebServicePlugin1 = [WebServicePlugin]::new()
+$WebServicePlugin1.PluginType = "Special Parameter Delimiter"
+$WebServicePlugin1.PluginOrder = 1
+$WebServicePlugin1.Separator = "+"
+
+$WebServicePlugin2 = [WebServicePlugin]::new()
+$WebServicePlugin2.PluginType = "Parameter to URL"
+$WebServicePlugin2.PluginOrder = 2
+$WebServicePlugin2.PathPrefix = "/dispatcher"
+$WebServicePlugin2.PrefixParam = "menuid"
+$WebServicePlugin2.DirParam = "nextpageid"
+
+[WebServicePlugin[]] $WebServicePluginList = @($WebServicePlugin1, $WebServicePlugin2)
+
+Edit-SecureSphereWebPlugins -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -WebServicePlugins $WebServicePluginList
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the site containing the server group.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the server group containing the web service.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the web service of which the plugins will be returned.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServicePlugin">-WebServicePlugin &lt;WebServicePlugin&gt;
+</p><p>This parameter specifies WebServicePlugin type object.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServicePlugins">-WebServicePlugins &lt;WebServicePlugin[]&gt;
+</p><p>This parameter specifies WebServicePlugin type of objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">WebServicePlugin</p>
+<p>WebServicePlugin<BR/>1. PluginType - String type. The type of plugin. Expected values: &quot;URL to Parameter&quot;, &quot;Parameter to URL&quot;, &quot;Parameter Modification&quot;, &quot;Special Parameter Delimiter&quot;, &quot;Parameter Coupling&quot;, &quot;Custom Plugin&quot;<BR/>2. PluginOrder - UInt32 type. Execution order of this plugins among all the plugins<BR/>3. PathRegexp - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>4. PathReplace - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>5. ParamValue - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>6. ParamName - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>7. PathPrefix - String type. Relevant to plugins: Parameter URL Url (p2u), Parameter Modification (p2p), Parameter Coupling<BR/>8. PrefixParam - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>9. SuffixParam - String type. Must be a string of length 1 or empty. Relevant only to URL To Parameter (u2p) plugin.<BR/>10. DirParam - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>11. SuffixDelimiter - String type. Relevant only to URL To Parameter (u2p) plugin.<BR/>12. ParameterRegex - String type. Relevant only to Parameter Modification (p2p) plugin.<BR/>13. ParameterRewrite - String type. Relevant only to Parameter Modification (p2p) plugin.<BR/>14. NameRegex - String type. Relevant only to Parameter Coupling plugin.<BR/>15. ValueRegex - String type. Relevant only to Parameter Coupling plugin.<BR/>16. Separator - String type. Separator must be a string of length 1 or empty. Relevant only to Special Parameter Delimiter (web-separator) plugin<BR/>17. Name - String type. Relevant only to Custom plugin. Expected values: &quot;hpl_u2p&quot;, &quot;hpl_p2u&quot;, &quot;hpl_p2p&quot;, &quot;hpl_web_separator&quot;, &quot;hpl_param_coupling&quot;<BR/>18. Config - String type. Relevant only to Custom plugin.<BR/><BR/>Example: <BR/>$WebServicePlugin = [WebServicePlugin]::new()<BR/>$WebServicePlugin.PluginType = &quot;Special Parameter Delimiter&quot;<BR/>$WebServicePlugin.PluginOrder = 1<BR/>$WebServicePlugin.Separator = &quot;+&quot;</p>
+<BR/>
+<p class="subheading">WebServicePlugin</p>
+<p>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10015 - Can not create {OBJECT_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10017 - Service not found<BR/>IMP-10141 - Value must be greater than or equal to {MIN_VALUE}<BR/>IMP-10144 - Value must be less than or equal to {MAX_VALUE}<BR/>IMP-10145 - Field length must be between {MIN_VALUE} and {MAX_VALUE}<BR/>IMP-12918 - The same order has been used twice. Please modify the order so that each plugin has a unique order.<BR/>IMP-12919 - You have reached the plugin size limit ({MAX_PLUGINS_NUMBER} plugins)<BR/>IMP-12920 - No plugin named {NON_EXISTING_PLUGIN_NAME} exists<BR/>IMP-12921 - Version 9.5 and above do not support the plugin hpl_u2pp. Please use the URL to Parameter plugin. The order of plugins is customizable.<BR/>IMP-12922 - Selected plugin type does not support field(s): {UNSUPPORTED_FIELDS}<BR/>IMP-12923 - Specified plugin type(s) were not found: {NON_EXISTING_PLUGIN_TYPES}</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66816.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

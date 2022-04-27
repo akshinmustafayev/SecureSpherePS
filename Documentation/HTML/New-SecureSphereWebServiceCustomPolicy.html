@@ -1,0 +1,302 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereWebServiceCustomPolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereWebServiceCustomPolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Create a Web Service Custom Policy indicated by the path parameter policyName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereWebServiceCustomPolicy -PolicyName &lt;String&gt; [-Enabled] [-Severity &lt;String&gt;] [-Action &lt;String&gt;] [-FollowedAction &lt;String&gt;] [-OneAlertPerSession] [-DisplayResponsePage] [-ApplyTo &lt;WebServiceCustomPolicyApplyTo or custom Array or Json&gt;] [-MatchCriteria &lt;MatchCriteria type objects or custom Array or Json&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereWebServiceCustomPolicy -PolicyName &lt;String&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Create a Web Service Custom Policy indicated by the path parameter policyName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$WebServiceCustomPolicyApplyTo = [WebServiceCustomPolicyApplyTo]::new()
+$WebServiceCustomPolicyApplyTo.SiteName = "some site"
+$WebServiceCustomPolicyApplyTo.ServerGroupName = "some group"
+$WebServiceCustomPolicyApplyTo.WebServiceName = "some web service"
+
+New-SecureSphereWebServiceCustomPolicy -PolicyName "some policy" -Enabled $true -Severity "informative" -Action "none" -FollowedAction "Long User Block" -OneAlertPerSession $false -DisplayResponsePage $false -ApplyTo $WebServiceCustomPolicyApplyTo -MatchCriteria $MatchCriteria
+
+Due to lack of official documentation it is hard to specify $MatchCriteria argument. See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61860.htm for the examples instead.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Enabled">-Enabled &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value specifying whether to enable policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Severity">-Severity &lt;String&gt;
+</p><p>This parameter specifies an alert severity.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>high<br/>
+medium<br/>
+low<br/>
+informative<br/>
+noAlert<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Action">-Action &lt;String&gt;
+</p><p>This parameter specifies policy action.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>block<br/>
+none<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:FollowedAction">-FollowedAction &lt;String&gt;
+</p><p>This parameter specifies the name of the Action Set.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:OneAlertPerSession">-OneAlertPerSession &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value indicating whether to allow only one alert to be created for every web session.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisplayResponsePage">-DisplayResponsePage &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value indicating whether to show the response page in alerts.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;WebServiceCustomPolicyApplyTo or custom Array or Json&gt;
+</p><p>This parameter specifies the list of services to apply the policy to.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:MatchCriteria">-MatchCriteria &lt;MatchCriteria type objects or custom Array or Json&gt;
+</p><p>This parameter specifies the list of match criteria to add.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>WebServiceCustomPolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group.<BR/>3. WebServiceName - String type. Required. The name of the web service.<BR/><BR/>Note: The following match criteria are not supported:<BR/>1) Account Takeover Protection Results<BR/>2) CAPTCHA Challenge Response<BR/>3) Fraud Prevention Results. The [multiple] match criterion can be used more than once.<BR/><BR/>Example:<BR/>$WebServiceCustomPolicyApplyTo = [WebServiceCustomPolicyApplyTo]::new()<BR/>$WebServiceCustomPolicyApplyTo.SiteName = &quot;some site&quot;<BR/>$WebServiceCustomPolicyApplyTo.ServerGroupName = &quot;some group&quot;<BR/>$WebServiceCustomPolicyApplyTo.WebServiceName = &quot;some web service&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaApplicationUser<BR/>1. Type - String type. Match Criterion name<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - Any type. Required. List of user names to match. At least one of the values is mandatory<BR/>4. MatchNoOrUnknownUser - Boolean type. Indicates whether to match events with No or Unknown User. Optional for create/update. Default: false<BR/><BR/>Example:<BR/>$MatchCriteriaApplicationUser = [MatchCriteriaApplicationUser]::new()<BR/>$MatchCriteriaApplicationUser.Type = [applicationUser is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaApplicationUser.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaApplicationUser.Values = @(&quot;My IP Group&quot;)<BR/>$MatchCriteriaApplicationUser.MatchNoOrUnknownUser = $false</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaAuthenticatedSession<BR/>1. Type - String type. Match Criterion name<BR/>2. Value - Boolean type. Required. List of user names to match. At least one of the values is mandatory<BR/><BR/>Example:<BR/>$MatchCriteriaAuthenticatedSession = [MatchCriteriaAuthenticatedSession]::new()<BR/>$MatchCriteriaAuthenticatedSession.Type = [authenticatedSession is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaAuthenticatedSession.Value = $true</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaAuthenticationResult<BR/>1. Type - String type. Match Criterion name<BR/>2. Value - String type. Required. Expected values: &quot;failed&quot;, &quot;successful&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaAuthenticationResult = [MatchCriteriaAuthenticationResult]::new()<BR/>$MatchCriteriaAuthenticationResult.Type = [authenticationResult is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaAuthenticationResult.Value = &quot;successful&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaAuthenticationURL<BR/>1. Type - String type. Match Criterion name<BR/>2. Value - String type. Required. Expected values: &quot;no&quot;, &quot;yes&quot;, &quot;yesWithLoginFields&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaAuthenticationURL = [MatchCriteriaAuthenticationURL]::new()<BR/>$MatchCriteriaAuthenticationURL.Type = [authenticationUrl is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaAuthenticationURL.Value = &quot;yes&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaClientType [Threatradar Bot Protection]<BR/>1. Type - String type. Match Criterion name<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. ClientTypes - String type. Required. List of client types to match. Expected values: &quot;trustedBots&quot;, &quot;whiteListedBots&quot;, &quot;badBot&quot;, &quot;generalBot&quot;, &quot;unknown&quot;, &quot;human&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaAuthenticationURL = [MatchCriteriaAuthenticationURL]::new()<BR/>$MatchCriteriaAuthenticationURL.Type = [clientTypeBotProtection is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaAuthenticationURL.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaAuthenticationURL.ClientTypes = &quot;trustedBots&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaDataSet [Attribute Lookup]<BR/>1. Type - String type. Match Criterion name<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Field - String type. Name of field to search in the event. Expected values: &quot;acceptLanguages&quot;, &quot;additionalLoginField&quot;, &quot;contentType&quot;, &quot;cookieNames&quot;, &quot;cookies&quot;, &quot;deviceID&quot;, &quot;fileTypes&quot;, &quot;headers&quot;, &quot;hostNames&quot;, &quot;methods&quot;, &quot;parameters&quot;, &quot;proxyIpAddresses&quot;, &quot;refererHostAndURL&quot;, &quot;referrerHostname&quot;, &quot;referrerUrl&quot;, &quot;responseCode&quot;, &quot;sourceIPAddresses&quot;, &quot;url&quot;, &quot;user&quot;, &quot;userAgent&quot;<BR/>4. LookupDataset - String type. Name of data set to search in.<BR/>5. Attribute - String type. Name of attribute to search in the data set. Values can be obtained via API: &quot;Get Lookup Data Set Columns&quot;.<BR/>6. SearchInUserValues - String type. List of user defined values table. Optional (if searchInLookupDataset is not defined).<BR/>7. SearchInLookupDataset - String type. List of lookup datasets to search in. Optional (if searchInUserValues is not defined).<BR/><BR/>Example:<BR/>$MatchCriteriaDataSet = [MatchCriteriaDataSet]::new()<BR/>$MatchCriteriaDataSet.Type = [datasetAttributeLookup is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaDataSet.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaDataSet.Field = &quot;hostNames&quot;<BR/>$MatchCriteriaDataSet.LookupDataset = &quot;some name&quot;<BR/>$MatchCriteriaDataSet.Attribute = &quot;...&quot;<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaEnrichmentData<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. UserDefinedFieldName - String type. Name of field to search in the event.<BR/>4. SearchInUserValues - String type. List of user defined values table. Optional (if searchInLookupDataset is not defined)<BR/>5. SearchInLookupDataset - String type. List of lookup datasets to search in. Optional (if searchInUserValues is not defined).<BR/>6. MatchUnknownValue - Boolean type. Match criterion when value does not exist. Default: false<BR/><BR/>Example:<BR/>$MatchCriteriaEnrichmentData = [MatchCriteriaEnrichmentData]::new()<BR/>$MatchCriteriaEnrichmentData.Type = [enrichmentData is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaEnrichmentData.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaEnrichmentData.UserDefinedFieldName = &quot;some field&quot;<BR/>$MatchCriteriaEnrichmentData.SearchInUserValues = &quot;some value&quot;<BR/>$MatchCriteriaEnrichmentData.SearchInLookupDataset = &quot;some data set&quot;<BR/>$MatchCriteriaEnrichmentData.MatchUnknownValue = $false<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaGenericDictionary<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. SearchMode - String type. Match type for values. Expected values: &quot;contains&quot;, &quot;exact&quot;<BR/>4. Dictionaries - String type. List of dictionary names to match. At least one value is mandatory.<BR/>5. Locations - String type. Locations to search in. Expected values: &quot;url&quot;, &quot;parameters&quot;, &quot;headers&quot;, &quot;urlsAndParameters&quot;, &quot;responseContent&quot;, &quot;nonNormalizedUrl&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaGenericDictionary = [MatchCriteriaGenericDictionary]::new()<BR/>$MatchCriteriaGenericDictionary.Type = [genericDictionarySearch is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaGenericDictionary.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaGenericDictionary.SearchMode = &quot;exact&quot;<BR/>$MatchCriteriaGenericDictionary.Dictionaries = @(&quot;dictionary1&quot;, &quot;dictionary2&quot;)<BR/>$MatchCriteriaGenericDictionary.Locations = &quot;headers&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequest<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;matchAll&quot;, &quot;matchAny&quot;, &quot;matchNone&quot;<BR/>3. MatchValues - [matchValue] type. Value to match in part of the request. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequest = [MatchCriteriaHTTPRequest]::new()<BR/>$MatchCriteriaHTTPRequest.Type = [httpRequest is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequest.Operation = &quot;matchNone&quot;<BR/>$MatchCriteriaHTTPRequest.MatchValues = [matchValue is specified in official documentation but it is still unknown what to specify exactly]<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestMatchValue<BR/>1. Part - String type. Location in request to search in. Expected values: &quot;url&quot;, &quot;parameter&quot;, &quot;header&quot;<BR/>2. Name - String type. Name of part to search.<BR/>3. Operation - String type. Match operation for values. Expected values: &quot;includes&quot;, &quot;doesNotInclude&quot;, &quot;matchRegExp&quot;, &quot;doNotMatchRegExp&quot;<BR/>4. Value - String type. Value to match.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestMatchValue = [MatchCriteriaHTTPRequestMatchValue]::new()<BR/>$MatchCriteriaHTTPRequestMatchValue.Part = &quot;url&quot;<BR/>$MatchCriteriaHTTPRequestMatchValue.Name = &quot;some name&quot;<BR/>$MatchCriteriaHTTPRequestMatchValue.Operation = &quot;includes&quot;<BR/>$MatchCriteriaHTTPRequestMatchValue.Value = &quot;accounting&quot;<BR/><BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestAcceptLanguage (Header)<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestAcceptLanguage = [MatchCriteriaHTTPRequestAcceptLanguage]::new()<BR/>$MatchCriteriaHTTPRequestAcceptLanguage.Type = [httpRequestAcceptLanguage is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestAcceptLanguage.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestAcceptLanguage.Values = @(&quot;value1&quot;, &quot;value2&quot;)<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestContentType (Header)<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestContentType = [MatchCriteriaHTTPRequestContentType]::new()<BR/>$MatchCriteriaHTTPRequestContentType.Type = [httpRequestContentType is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestContentType.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestContentType.CookieNames = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPCookieName<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. CookieNames - MatchCriteriaHTTPCookieNameCookie type or custom array. Value to match in part of the request. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPCookieName = [MatchCriteriaHTTPCookieName]::new()<BR/>$MatchCriteriaHTTPCookieName.Type = [httpRequestCookieName is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPCookieName.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPCookieName.CookieNames = [MatchCriteriaHTTPCookieNameCookie list or custom array]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPCookieNameCookie<BR/>1. Cookie - String type. Name of part to search.<BR/>2. MatchType - String type. Match type for cookie name. Expected values: &quot;prefix&quot;, &quot;exact&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPCookieNameCookie = [MatchCriteriaHTTPCookieNameCookie]::new()<BR/>$MatchCriteriaHTTPCookieNameCookie.Cookie = &quot;some cookie&quot;<BR/>$MatchCriteriaHTTPCookieNameCookie.MatchType = &quot;exact&quot;<BR/><BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestFileExtension<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestFileExtension = [MatchCriteriaHTTPRequestFileExtension]::new()<BR/>$MatchCriteriaHTTPRequestFileExtension.Type = [httpRequestFileExtension is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestFileExtension.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestFileExtension.CookieNames = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestCookies<BR/>1. Type - String type. Match Criterion name.<BR/>2. Name - String type. Name of the cookie.<BR/>3. Match - String type. Match operation for values. Expected values: &quot;prefix&quot;, &quot;exact&quot;<BR/>4. Values - String type. List of values to match. At least one value is mandatory.<BR/>5. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestCookies = [MatchCriteriaHTTPRequestCookies]::new()<BR/>$MatchCriteriaHTTPRequestCookies.Type = [httpRequestCookies is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestCookies.Name = &quot;some name&quot;<BR/>$MatchCriteriaHTTPRequestCookies.Match = &quot;exact&quot;<BR/>$MatchCriteriaHTTPRequestCookies.Values = @(&quot;value1&quot;, &quot;value2&quot;)<BR/>$MatchCriteriaHTTPRequestCookies.Operation = &quot;atLeastOne&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestHeaderValue<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3.  Values - String type. List of values to match. At least one value is mandatory.<BR/>4. Name - String type. Header name.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestHeaderValue = [MatchCriteriaHTTPRequestHeaderValue]::new()<BR/>$MatchCriteriaHTTPRequestHeaderValue.Type = [httpRequestHeaderValue is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestHeaderValue.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestHeaderValue.Values = @(&quot;value1&quot;, &quot;value2&quot;)<BR/>$MatchCriteriaHTTPRequestHeaderValue.Name = &quot;some name&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestHeaderName<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestHeaderName = [MatchCriteriaHTTPRequestHeaderName]::new()<BR/>$MatchCriteriaHTTPRequestHeaderName.Type = [httpRequestHeaderName is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestHeaderName.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestHeaderName.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestHostName<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestHostName = [MatchCriteriaHTTPRequestHostName]::new()<BR/>$MatchCriteriaHTTPRequestHostName.Type = [httpRequestHostName is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestHostName.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestHostName.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestMethod<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestMethod = [MatchCriteriaHTTPRequestMethod]::new()<BR/>$MatchCriteriaHTTPRequestMethod.Type = [httpRequestMethod is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestMethod.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestMethod.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestParameterName<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestParameterName = [MatchCriteriaHTTPRequestParameterName]::new()<BR/>$MatchCriteriaHTTPRequestParameterName.Type = [httpRequestParameterName is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestParameterName.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestParameterName.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestParameterNamePrefix<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestParameterNamePrefix = [MatchCriteriaHTTPRequestParameterNamePrefix]::new()<BR/>$MatchCriteriaHTTPRequestParameterNamePrefix.Type = [httpRequestParameterNamePrefix is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestParameterNamePrefix.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestParameterNamePrefix.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestRefererHostname<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestRefererHostname = [MatchCriteriaHTTPRequestRefererHostname]::new()<BR/>$MatchCriteriaHTTPRequestRefererHostname.Type = [httpRequestRefererNamePrefix is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestRefererHostname.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestRefererHostname.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestRefererURL<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestRefererURL = [MatchCriteriaHTTPRequestRefererURL]::new()<BR/>$MatchCriteriaHTTPRequestRefererURL.Type = [httpRequestRefererUrl is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestRefererURL.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestRefererURL.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestURL<BR/>1. Type - String type. Match Criterion name.<BR/>2. Match - String type. Match type for URLs. Expected values: &quot;exact&quot;, &quot;prefix&quot;<BR/>3. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>4. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestURL = [MatchCriteriaHTTPRequestURL]::new()<BR/>$MatchCriteriaHTTPRequestURL.Type = [httpRequestUrl is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestURL.Match = &quot;prefix&quot;<BR/>$MatchCriteriaHTTPRequestURL.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestURL.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPRequestUserAgent<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPRequestUserAgent = [MatchCriteriaHTTPRequestUserAgent]::new()<BR/>$MatchCriteriaHTTPRequestUserAgent.Type = [httpRequestUserAgent is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPRequestUserAgent.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPRequestUserAgent.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPResponseHeaderName<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPResponseHeaderName = [MatchCriteriaHTTPResponseHeaderName]::new()<BR/>$MatchCriteriaHTTPResponseHeaderName.Type = [httpResponseHeaderName is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPResponseHeaderName.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPResponseHeaderName.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPResponseCode<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - UInt32 type. List of values to match. At least one value is mandatory. Code is a 3-digit number.<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPResponseCode = [MatchCriteriaHTTPResponseCode]::new()<BR/>$MatchCriteriaHTTPResponseCode.Type = [httpResponseCode is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPResponseCode.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaHTTPResponseCode.Values = @(403, 404)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaHTTPSession<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;equals&quot;, &quot;notEquals&quot;<BR/>3. Value - String type. Value to match. Expected values: &quot;validated&quot;, &quot;invalidated&quot;, &quot;no session&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaHTTPSession = [MatchCriteriaHTTPSession]::new()<BR/>$MatchCriteriaHTTPSession.Type = [httpSession is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaHTTPSession.Operation = &quot;equals&quot;<BR/>$MatchCriteriaHTTPSession.Value = &quot;validated&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaLookupDataSetSearch<BR/>1. Type - String type. Match Criterion name<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Field - String type. Name of field to search in the event. Expected values: &quot;acceptLanguages&quot;, &quot;additionalLoginField&quot;, &quot;contentType&quot;, &quot;cookieNames&quot;, &quot;cookies&quot;, &quot;deviceID&quot;, &quot;fileTypes&quot;, &quot;headers&quot;, &quot;hostNames&quot;, &quot;methods&quot;, &quot;parameters&quot;, &quot;proxyIpAddresses&quot;, &quot;refererHostAndURL&quot;, &quot;referrerHostname&quot;, &quot;referrerUrl&quot;, &quot;responseCode&quot;, &quot;sourceIPAddresses&quot;, &quot;url&quot;, &quot;user&quot;, &quot;userAgent&quot;<BR/>4. SearchInUserValues - String type. List of user defined values table. Optional (if searchInLookupDataset is not defined).<BR/>5. SearchInLookupDataset - String type. List of lookup datasets to search in. Optional (if searchInUserValues is not defined).<BR/>6. MatchUnknownValue - Boolean type. Match predicate when value does not exist. Optional. Default value: false.<BR/><BR/>Example:<BR/>$MatchCriteriaLookupDataSetSearch = [MatchCriteriaLookupDataSetSearch]::new()<BR/>$MatchCriteriaLookupDataSetSearch.Type = [lookupDatasetSearch is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaLookupDataSetSearch.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaLookupDataSetSearch.Field = &quot;hostNames&quot;<BR/>$MatchCriteriaLookupDataSetSearch.MatchUnknownValue = $false</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaNumberOfOccurrences<BR/>1. Type - String type. Match Criterion name.<BR/>2. NumTimes - UInt32 type. Number of times occurred.<BR/>2. WithinSeconds - UInt32 type. Size of time window in seconds.<BR/>3. Context - String type. Context to count occurrences. Expected values: &quot;serverGroup&quot;, &quot;originationSession&quot;, &quot;sourceIp&quot;, &quot;user&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaNumberOfOccurrences = [MatchCriteriaNumberOfOccurrences]::new()<BR/>$MatchCriteriaNumberOfOccurrences.Type = [numberOfOccurrences is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaNumberOfOccurrences.NumTimes = 4<BR/>$MatchCriteriaNumberOfOccurrences.WithinSeconds = 5<BR/>$MatchCriteriaNumberOfOccurrences.Context = &quot;user&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaProfiledRefererHost<BR/>1. Type - String type. Match Criterion name.<BR/>2. Value - String type. Expected values: &quot;yes&quot;, &quot;no&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaProfiledRefererHost = [MatchCriteriaProfiledRefererHost]::new()<BR/>$MatchCriteriaProfiledRefererHost.Type = [profiledRefererHost is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaProfiledRefererHost.Value = &quot;no&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaProtocols<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Protocols - String type. Protocols to match. Expected values: &quot;http&quot;, &quot;https&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaProfiledRefererHost = [MatchCriteriaProfiledRefererHost]::new()<BR/>$MatchCriteriaProfiledRefererHost.Type = [protocols is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaProfiledRefererHost.Operation = &quot;excludeAll&quot;<BR/>$MatchCriteriaProfiledRefererHost.Protocols = &quot;https&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaProxyIPAddresses<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. IpGroups - String[] type. List of names of IP Groups to search in. Optional (if userDefined is provided). If specified, at least one value is mandatory. Values can be obtained via API: &quot;Get All IP Group entries&quot;<BR/>4. UserDefined - String[] type. List of IPs to match. Optional (if ipGroups is provided). If specified, at least one value is mandatory.<BR/>5. MatchNonProxied - Boolean type. Match events with no proxies. Optional. Default: false.<BR/><BR/>Example:<BR/>$MatchCriteriaProxyIPAddresses = [MatchCriteriaProxyIPAddresses]::new()<BR/>$MatchCriteriaProxyIPAddresses.Type = [proxyIpAddresses is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaProxyIPAddresses.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaProxyIPAddresses.IpGroups = &quot;group1&quot;<BR/>$MatchCriteriaProxyIPAddresses.UserDefined = &quot;192.168.0.55&quot;<BR/>$MatchCriteriaProxyIPAddresses.MatchNonProxied = $false</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaSensitiveDictionarySearch<BR/>1. Type - String type. Match Criterion name.<BR/>2. SearchMode - String[] type. Match operation for values. Expected values: &quot;contains&quot;, &quot;exact&quot;<BR/>3. Dictionaries - String[] type. List of dictionary names to match. At least one value is mandatory.<BR/>4. Locations - String[] type. Locations to search in. Expected values: &quot;url&quot;, &quot;parameters&quot;, &quot;headers&quot;, &quot;urlsAndParameters&quot;, &quot;responseContent&quot;, &quot;nonNormalizedUrl&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaSensitiveDictionarySearch = [MatchCriteriaSensitiveDictionarySearch]::new()<BR/>$MatchCriteriaSensitiveDictionarySearch.Type = [sensitiveDictionarySearch is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaSensitiveDictionarySearch.Operation = &quot;exact&quot;<BR/>$MatchCriteriaSensitiveDictionarySearch.Dictionaries = &quot;dictionary1&quot;<BR/>$MatchCriteriaSensitiveDictionarySearch.Locations = &quot;headers&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaSignatures<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Signatures - Signature type. Signatures to match.<BR/><BR/>Example:<BR/>$MatchCriteriaSignatures = [MatchCriteriaSignatures]::new()<BR/>$MatchCriteriaSignatures.Type = [signatures is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaSignatures.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaSignatures.Values = [MatchCriteriaSignaturesSignature type or custom array]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaSignaturesSignature<BR/>1. Name - String type. Name of the signature<BR/>2. IsUserDefined - Boolean type. Specify if signature is User Defined or Predefined.<BR/><BR/>Example:<BR/>$MatchCriteriaSignaturesSignature = [MatchCriteriaSignaturesSignature]::new()<BR/>$MatchCriteriaSignaturesSignature.Name = &quot;some name&quot;<BR/>$MatchCriteriaSignaturesSignature.IsUserDefined = $false</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaSourceGeolocation<BR/>1. Type - String type. Match Criterion name.<BR/>2. Values - String[] type. Name of countries to match. Optional. Mandatory if applyIfUnidentified is false.<BR/>3. ApplyIfUnidentified - Boolean type. Indicate whether to apply rule to unidentified locations. Optional. Default value: false.<BR/>3. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/><BR/>Example:<BR/>$MatchCriteriaSourceGeolocation = [MatchCriteriaSourceGeolocation]::new()<BR/>$MatchCriteriaSourceGeolocation.Type = [sourceGeolocation is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaSourceGeolocation.Values = @(&quot;Value1&quot;, &quot;Value2&quot;)<BR/>$MatchCriteriaSourceGeolocation.ApplyIfUnidentified = $false<BR/>$MatchCriteriaSourceGeolocation.Operation = &quot;atLeastOne&quot;<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaSourceIPAddresses<BR/>1. Type - sourceIpAddresses. Predicate name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. IpGroups - String type. List of ipGroups to match. Optional (if userDefined is provided). If specified, at least one value is mandatory. Values can be obtained via API: &quot;Get All IP Group entries&quot;.<BR/>4. UserDefined - String type. List of user defined IP addresses. Optional (if ipGroups is provided). If specified, at least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaSourceIPAddresses = [MatchCriteriaSourceIPAddresses]::new()<BR/>$MatchCriteriaSourceIPAddresses.Type = [sourceIpAddresses is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaSourceIPAddresses.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaSourceIPAddresses.IpGroups = &quot;some group&quot;<BR/>$MatchCriteriaSourceIPAddresses.UserDefined = &quot;1.2.3.4&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaTimeOfDay<BR/>1. Type - String type. Match Criterion name.<BR/>2. Restrictions - Restriction type. List of time periods to which restrict the rule. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaTimeOfDay = [MatchCriteriaTimeOfDay]::new()<BR/>$MatchCriteriaTimeOfDay.Type = [timeOfDay is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaTimeOfDay.Restrictions = [MatchCriteriaTimeOfDayRestriction objects or custom Array]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaTimeOfDayRestriction<BR/>1. DayOfWeek - String type. Expected values: &quot;sunday&quot;, &quot;monday&quot;, &quot;tuesday&quot;, &quot;wednesdsay&quot;, &quot;thursday&quot;, &quot;friday&quot;, &quot;saturday&quot;<BR/>2. From - String type. Format: &quot;hh:mm&quot;. Period start time. mm: 00 or 30.<BR/>2. To - String type. Format: &quot;hh:mm&quot;. Period end time. mm: 00 or 30.<BR/><BR/>Example:<BR/>$MatchCriteriaTimeOfDayRestriction = [MatchCriteriaTimeOfDayRestriction]::new()<BR/>$MatchCriteriaTimeOfDayRestriction.DayOfWeek = &quot;sunday&quot;<BR/>$MatchCriteriaTimeOfDayRestriction.From = &quot;4:01&quot;<BR/>$MatchCriteriaTimeOfDayRestriction.To = &quot;4:30&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaViolations<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match. At least one value is mandatory.<BR/><BR/>Example:<BR/>$MatchCriteriaViolations = [MatchCriteriaViolations]::new()<BR/>$MatchCriteriaViolations.Type = [violations is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaViolations.Operation = &quot;atLeastOne&quot;<BR/>$MatchCriteriaViolations.Values = @(&quot;value1&quot;, &quot;value2&quot;)</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaWebPageResponseSize<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;lessOrEquals&quot;, &quot;greaterThan&quot;<BR/>3. Value - UInt32 type. Size of response page in bytes.<BR/><BR/>Example:<BR/>$MatchCriteriaWebPageResponseSize = [MatchCriteriaWebPageResponseSize]::new()<BR/>$MatchCriteriaWebPageResponseSize.Type = [webPageResponseSize is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaWebPageResponseSize.Operation = &quot;greaterThan&quot;<BR/>$MatchCriteriaWebPageResponseSize.Values = 5</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>MatchCriteriaWebPageResponseTime<BR/>1. Type - String type. Match Criterion name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;lessOrEquals&quot;, &quot;greaterThan&quot;<BR/>3. Value - UInt32 type. Size of response time in milliseconds.<BR/><BR/>Example:<BR/>$MatchCriteriaWebPageResponseTime = [MatchCriteriaWebPageResponseTime]::new()<BR/>$MatchCriteriaWebPageResponseTime.Type = [webPageResponseTime is specified in official documentation but it is still unknown what to specify exactly]<BR/>$MatchCriteriaWebPageResponseTime.Operation = &quot;greaterThan&quot;<BR/>$MatchCriteriaWebPageResponseTime.Values = 5</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10010 - Invalid IP address. Please enter a valid IP address, then try again<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10016 - The &quot;{ILLEGAL_ARGUMENT_NAME}&quot; entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10023 - One of the parameters [searchInLookupDataset, searchInUserValues] is mandatory. Note: Refers to the Data Set Attribute Lookup and Enrichment Data match criteria. -OR- One of the parameters [ipGroups, userDefined] is mandatory. Note: Refers to the Source IP Addresses and Proxy IP Addresses match criteria.<BR/>IMP-10094 - Dataset not found.<BR/>IMP-10095 - Column named &quot;value&quot; does not exist in the dataset<BR/>IMP-10601 - IP group name not found<BR/>IMP-10701 - Action Set not found<BR/>IMP-10801 - Dictionary {DICTIONARY_NAME} not found<BR/>IMP-10831 - Match criterion cannot be applied more than once<BR/>IMP-10832 - The &#39;Within&#39; value must not be less than 5 and a multiple of 5</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61860.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

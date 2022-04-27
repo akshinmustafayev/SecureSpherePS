@@ -1,0 +1,75 @@
+﻿# Edit-SecureSphereSite
+
+## SYNOPSIS
+Updates an existing site. The target site is indicated by the path parameter siteName. The site attributes that can be updated are listed below.
+
+## SYNTAX
+
+### Parameter Set 1 (Default)
+```
+Edit-SecureSphereSite -SiteName <String> -NewName <String> [<CommonParameters>]
+```
+
+## DESCRIPTION
+Updates an existing site. The target site is indicated by the path parameter siteName. The site attributes that can be updated are listed below.
+
+## EXAMPLES
+
+### EXAMPLE 1
+
+```powershell
+Edit-SecureSphereSite -SiteName "Denver" -NewName "NY2"
+```
+
+## PARAMETERS
+
+### SiteName
+This parameter specifies the name of the site to update.
+
+```yaml
+Type: String
+Parameter Sets: Parameter Set 1
+Aliases: none
+
+Required: true
+Position: named
+Default Value: None
+Pipeline Input: False
+```
+
+### NewName
+This parameter specifies the new site name.
+
+```yaml
+Type: String
+Parameter Sets: Parameter Set 1
+Aliases: none
+
+Required: true
+Position: named
+Default Value: None
+Pipeline Input: False
+```
+
+### \<CommonParameters\>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+### Error Codes
+IMP-10006 - Site not found
+IMP-10005 - An item with this name already exists - please select a different name
+IMP-10071 - Name field must be populated
+
+## RELATED LINKS
+
+[Online Version:](https://github.com/akshinmustafayev/Documentation/MD)
+
+[Official Documentation:](https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61623.htm)
+
+
+

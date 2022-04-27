@@ -1,0 +1,130 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Set-SecureSphereWebSingleURLToProfile</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Set-SecureSphereWebSingleURLToProfile</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Sets a WebProfileUrl object that represents a single URL in the profile, including its parameters.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Set-SecureSphereWebSingleURLToProfile -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -WebApplicationName &lt;String&gt; -UrlPath &lt;String&gt; -WebProfileUrl &lt;WebProfileUrl&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Sets a WebProfileUrl object that represents a single URL in the profile, including its parameters.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Set-SecureSphereWebSingleURLToProfile -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -WebApplicationName "Official-Website" -UrlPath "some_path_url" -WebProfileUrl $WebProfileUrl
+
+See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66158.htm for example.
+Use classes as parameters. See notes of this cmdlet. Due to lack of official documenation for this parameter it is hard to give exact working example.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the name of the site.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the server group.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the name of the service.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebApplicationName">-WebApplicationName &lt;String&gt;
+</p><p>This parameter specifies the name of the web application.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:UrlPath">-UrlPath &lt;String&gt;
+</p><p>This parameter specifies the full path of the URL.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebProfileUrl">-WebProfileUrl &lt;WebProfileUrl&gt;
+</p><p>This parameter specifies the WebProfileUrl type object.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>WebProfileUrl<BR/>1. urlFullPath - String type. Required when setting the entire profile. Not used when setting a single URL - value is taken from path parameter.<BR/>2. status - String type. Acceptable values: &quot;InLearning&quot; or &quot;InProtection&quot;. Default is InProtection.<BR/>3. contentTypes - String type. Acceptable values: &quot;URL&quot; or &quot;XML&quot; or &quot;JSON&quot;. Default is URL.<BR/>4. locked - Boolean type. Default is false.<BR/>5. allowedMethods - WebProfileAllowedMethod type.<BR/>6. parameters - WebProfileParameter type.<BR/><BR/>Example:<BR/>$WebProfileUrl = [WebProfileUrl]::new()<BR/>$WebProfileUrl.[attribute] = [value]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>WebProfileAllowedMethod<BR/>1. status - String type. Required. Acceptable values: &quot;observed&quot; or &quot;decided&quot;.<BR/>2. method - String type. Required.<BR/><BR/>Example:<BR/>$WebProfileAllowedMethod = [WebProfileAllowedMethod]::new()<BR/>$WebProfileAllowedMethod.[attribute] = [value]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>WebProfileParameter<BR/>1. name - String type. Required. <BR/>2. minLength - UInt32 type. Required.<BR/>3. maxLength - UInt32 type. Required.<BR/>4. type - String type. Acceptable values: &quot;Numeric&quot; or &quot;Latin&quot; or &quot;UTF8&quot;. Default is Numeric.<BR/>5. required - Boolean type.<BR/>6. readOnly - Boolean type.<BR/>7. prefix - Boolean type.<BR/>8. nullable - Boolean type.<BR/>9. additionalAllowedChars - String type. All the additional chars.<BR/>10. customValueType - String type.<BR/><BR/>Notes:<BR/>1. When customValueType is set, additionalAllowedChars and type cannot be set (see errors IMP-10137, IMP-10138)<BR/>2. If either additionalAllowedChars or type are set, customValueType cannot be set (see errors IMP-10137, IMP-10138)<BR/>3. Value for customValueType must be an existing Parameter Type Configuration (a global object)<BR/><BR/>Example:<BR/>$WebProfileParameter = [WebProfileParameter]::new()<BR/>$WebProfileParameter.[attribute] = [value]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>Legal Additional HTTP Methods:<BR/>BDELETE,LOCK,PROPPATCH<BR/>BPROPFIND,M_GET,PUT<BR/>BPROPPATCH,MKCOL,RMDIR<BR/>BMOVE,MKDIR,RPC_IN_DATA<BR/>CONNECT,MOVE,RPC_OUT_DATA<BR/>COPY,M_POST,SEARCH<BR/>DELETE,NOTIFY,SUBSCRIBE<BR/>GET,OPTIONS,TRACE<BR/>HEAD,PATCH,UNLINK<BR/>INDEX,POLL,UNLOCK<BR/>INVOKE,POST,UNSUBSCRIBE</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>Legal Additional Allowed Characters:<BR/>concatenation,period,plus<BR/>osRelatedSeparators,comma,brackets<BR/>asciiControlCharacters,percent,angledBrackets<BR/>lineBreaks,whiteSpaces,others<BR/>asterisk,parenthesis,quote<BR/>nullSign,doubleQuote,<BR/>slash,httpQuerySeparators,</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10014 - Application not found<BR/>IMP-10015 - Cannot create { } since the body parameter { } is missing<BR/>IMP-10016 - The {illegal string} entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10134 - The URL {} already exists in the profile<BR/>IMP-10136 - A new URL cannot be added to profile: too many URLs<BR/>IMP-10137 - The parameter {param} cannot set both additional allowed character groups and custom value type.<BR/>IMP-10138 - The parameter {param} cannot set both primary value type and custom value type.<BR/>IMP-10139 - Cannot set custom value type with name {name} for parameter {param}. Parameter type configuration {name} not found.<BR/>IMP-10140 - Max value must be greater or equal to min value<BR/>IMP-10141 - Value must be greater than or equal to 0</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66158.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

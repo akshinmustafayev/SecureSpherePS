@@ -1,0 +1,110 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereStreamSignaturesPolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereStreamSignaturesPolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Creates a stream signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereStreamSignaturesPolicy -PolicyName &lt;String&gt; -Rules &lt;StreamSignaturesPolicyRule type or Array or Json array&gt; -AutoApply -ApplyTo &lt;StreamSignaturesPolicyApplyTo type or Array or Json array&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Creates a stream signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$StreamSignaturesPolicyRule1 = [StreamSignaturesPolicyRule]::new()
+$StreamSignaturesPolicyRule1.Name = "Recommended for Blocking for General Applications - Legacy"
+$StreamSignaturesPolicyRule1.Enabled = $true
+$StreamSignaturesPolicyRule1.FollowedAction = "Long IP Block"
+
+$StreamSignaturesPolicyRule2 = [StreamSignaturesPolicyRule]::new()
+$StreamSignaturesPolicyRule2.Name = "Worms and Critical Vulnerabilities for General Applications"
+$StreamSignaturesPolicyRule2.Severity = "informative"
+$StreamSignaturesPolicyRule2.Action = "none"
+
+$StreamSignaturesPolicyApplyTo = [StreamSignaturesPolicyApplyTo]::new()
+$StreamSignaturesPolicyApplyTo.SiteName = "Default Site"
+$StreamSignaturesPolicyApplyTo.ServerGroupName  = "My Server Group"
+
+New-SecureSphereStreamSignaturesPolicy -PolicyName "some policy" -Rules @($StreamSignaturesPolicyRule1, $StreamSignaturesPolicyRule2) -AutoApply $true -ApplyTo $StreamSignaturesPolicyApplyTo
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Rules">-Rules &lt;StreamSignaturesPolicyRule type or Array or Json array&gt;
+</p><p>This parameter specifies all applied rules.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:AutoApply">-AutoApply &lt;Boolean&gt;
+</p><p>This parameter specifies boolean value specifying whether to automatically apply this policy to new server groups.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;StreamSignaturesPolicyApplyTo type or Array or Json array&gt;
+</p><p>This parameter specifies all server groups to which the policy is applied.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>StreamSignaturesPolicyRule<BR/>1. Name - String type. The name of the rule<BR/>2. Enabled - Boolean type. Boolean value specifying whether this rule is enabled<BR/>3. Severity - String type. The severity of the rule. Expected values: &quot;noAlert&quot;, &quot;informative&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;.<BR/>4. Action - String type. Immediate action when this rule is invoked. Expected values: &quot;none&quot;, &quot;block&quot;<BR/>5. FollowedAction - String type. Followed action after this rule is invoked.<BR/><BR/>Example:<BR/>$StreamSignaturesPolicyRule = [StreamSignaturesPolicyRule]::new()<BR/>$StreamSignaturesPolicyRule.Name = &quot;Recommended for Blocking for General Applications - Legacy&quot;<BR/>$StreamSignaturesPolicyRule.Enabled = $true<BR/>$StreamSignaturesPolicyRule.FollowedAction = &quot;Long IP Block&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>StreamSignaturesPolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group<BR/><BR/>Example:<BR/>$StreamSignaturesPolicyApplyTo = [StreamSignaturesPolicyApplyTo]::new()<BR/>$StreamSignaturesPolicyApplyTo.SiteName = &quot;Default Site&quot;<BR/>$StreamSignaturesPolicyApplyTo.ServerGroupName  = &quot;My Server Group&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10017 - Service not found<BR/>IMP-10032 - The &quot;{ILLEGAL_FIELD_NAME}&quot; value entered is illegal<BR/>IMP-10801 - Dictionary {DICTIONARY_NAME} not found<BR/>IMP-10903 - Dictionary {DICTIONARY_NAME} already exists in this policy<BR/>IMP-10904 - A followed action cannot be set for a rule with &#39;No Alert&#39; severity</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66864.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

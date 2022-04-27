@@ -1,0 +1,168 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Import-SecureSphereWebSSLCertificate</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Import-SecureSphereWebSSLCertificate</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Uploads an SSL certificate with the name indicated by the path parameter sslKeyName that relates to the Web service indicated by the path parameters siteName, serverGroupName and webServiceName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Import-SecureSphereWebSSLCertificate -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -SslKeyName &lt;String&gt; -Format &lt;String&gt; [-Hsm] [-Private &lt;String&gt;] [-Certificate &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Import-SecureSphereWebSSLCertificate -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -SslKeyName &lt;String&gt; -Format &lt;String&gt; [-Pkcs12file &lt;String&gt;] [-Password &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Uploads an SSL certificate with the name indicated by the path parameter sslKeyName that relates to the Web service indicated by the path parameters siteName, serverGroupName and webServiceName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Import-SecureSphereWebSSLCertificate -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -SslKeyName "sslKey1" -Format "pem" -Private " -----BEGIN PRIVATE-----MIIEpAIBAAKCAQEA4mOJC0OwjvYkMfSH8…z -----END PRIVATE-----" -Certificate " -----BEGIN CERTIFICATE-----mVpSBzlDLIQHW0/Pyc3i6MB…-----END PRIVATE-----" -Hsm $false
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent site of the web service to access.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent server group of the web service to access.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the name of the web service to access.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:SslKeyName">-SslKeyName &lt;String&gt;
+</p><p>This parameter specifies the name of the SSL Key to create.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Format">-Format &lt;String&gt;
+</p><p>This parameter specifies the certificate format type.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>pem<br/>
+pkcs12<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Hsm">-Hsm &lt;Boolean&gt;
+</p><p>This parameter specifies if to use certificate used by HSM.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Private">-Private &lt;String&gt;
+</p><p>This parameter specifies the base64 encoded PEM certificate, enclosed between &quot;-----BEGIN PRIVATE-----&quot; and &quot;-----END PRIVATE-----&quot;. Mandatory for &quot;format&quot; value &quot;pem&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Certificate">-Certificate &lt;String&gt;
+</p><p>This parameter specifies the base64 encoded PEM certificate, enclosed between &quot;-----BEGIN CERTIFICATE-----&quot; and &quot;-----END CERTIFICATE-----&quot;. Mandatory for &quot;format&quot; value &quot;pem&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Pkcs12file">-Pkcs12file &lt;String&gt;
+</p><p>This parameter specifies the PKCS12 file content, Base64 encoded. Mandatory for &quot;format&quot; value &quot;pkcs12&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Password">-Password &lt;String&gt;
+</p><p>This parameter specifies the PKCS12 file password. Mandatory for &quot;format&quot; value &quot;pkcs12&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Notes on SSL Certificates</p>
+<p>IMP-10005 - An SSL key with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10017 - Service not found<BR/>IMP-10016 - The &quot;sslKeyName&quot; entered is illegal<BR/>IMP-10026 - Body parameter &quot;format&quot; is missing<BR/>IMP-10016 - The HSM entered is illegal<BR/>IMP-10016 - The value entered for private is either missing or not encoded in Base64<BR/>IMP-10016 - The certificate entered is either missing or not encoded in Base64<BR/>IMP-10016 - The pkcs12file entered is missing, an invalid format, or not encoded in Base64<BR/>IMP-10016 - The password entered is illegal<BR/>IMP-10026 - The body parameter &quot;private&quot; is missing<BR/>IMP-10026 - Body parameter &quot;certificate&quot; is missing<BR/>IMP-10026 - Body parameter &quot;pkcs12file&quot; is missing<BR/>IMP-10026 - Body parameter &quot;password&quot; is missing<BR/>IMP-10301 - The SSL Certificate is not found<BR/>IMP-10302 - Not an HSM key. HSM flag is set but certificate is not HSM<BR/>IMP-10303 - Invalid key file. Private certificate content is invalid<BR/>IMP-10304 - Invalid certificate file. Public certificate content is invalid<BR/>IMP-10305 - Key and certificate do not match</p>
+<BR/>
+<p class="subheading">Notes on SSL Certificates</p>
+<p>1. This feature is currently only supported with Web and SharePoint licenses.<BR/>2. Certificates must preserve valid JSON format of the surrounding content. If the certificate contains hidden characters such as hidden end of lines, they should be replaced by end of line characters (for example: \n).<BR/>3. SecureSphere supports both base 64 and binary format.<BR/>a. PEM encoding is base 64.<BR/>b. PKCS12 encoding is a binary format.<BR/>However SecureSphere does not support binary format via the REST API. Subsequently, if your source key format is binary, you need to convert it to Base 64.</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/Documentation/MD">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61889.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

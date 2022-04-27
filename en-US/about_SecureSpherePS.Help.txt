@@ -1,0 +1,25 @@
+﻿TOPIC 
+	about_SecureSpherePS
+	
+SHORT DESCRIPTION	
+	PowerShell Module to manage Imperva SecureSphere 13.6.
+	
+LONG DESCRIPTION
+	PowerShell Module to manage Imperva SecureSphere 13.6.
+	
+NOTE
+	None.
+	
+TROUBLESHOOTING NOTE
+	Use -Verbose or -Debug at the end of the function to see execution information.
+	
+	
+EXAMPLES
+	See documentation for functionality.
+	
+KEYWORDS
+	
+	
+	
+SEE ALSO
+	https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61935.htm
