@@ -20,6 +20,8 @@
 
 ![image](images/imperva_securesphere_banner.jpg)
 
+---
+
 ## :newspaper: Description
 
 SecureSpherePS - PowerShell Module to manage Imperva SecureSphere 13.6. Automate and control your Imperva SecureSphere Web Application Firewall with PowerShell.
