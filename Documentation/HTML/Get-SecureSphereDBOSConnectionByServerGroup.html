@@ -1,0 +1,70 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Get-SecureSphereDBOSConnectionByServerGroup</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Get-SecureSphereDBOSConnectionByServerGroup</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Returns connection details, with asterisks instead of the actual password (for security purposes).</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Get-SecureSphereDBOSConnectionByServerGroup -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Returns connection details, with asterisks instead of the actual password (for security purposes).</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Get-SecureSphereDBOSConnectionByServerGroup -SiteName "Denver" -ServerGroupName "HR-Prod"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies site name.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies server group name.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<p class="subheading">Response body</p>
+<p>{<BR/>0: {<BR/>&quot;host-name&quot;: &quot;127.0.0.1&quot;,<BR/>&quot;OS-type&quot;: &quot;linux&quot;,<BR/>&quot;user-name&quot;: &quot;root&quot;,<BR/>&quot;password&quot;: &quot;******&quot;<BR/>&quot;connection-mode&quot;: &quot;string&quot;,<BR/>&quot;share-name&quot;: &quot;string&quot;,<BR/>&quot;folder-path&quot;: &quot;string&quot;,<BR/>&quot;domain&quot;:&quot;string&quot;,<BR/>&quot;ip&quot;: &quot;string&quot;<BR/>},<BR/>1: {<BR/>&quot;host-name&quot;: &quot;127.0.0.2&quot;,<BR/>&quot;OS-type&quot;: &quot;linux&quot;,<BR/>&quot;user-name&quot;: &quot;root&quot;,<BR/>&quot;password&quot;: &quot;******&quot;<BR/>&quot;connection-mode&quot;: &quot;string&quot;,<BR/>&quot;share-name&quot;: &quot;string&quot;,<BR/>&quot;folder-path&quot;: &quot;string&quot;,<BR/>&quot;domain&quot;:&quot;string&quot;,<BR/>&quot;ip&quot;: &quot;string&quot;<BR/>}<BR/>}</p>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61719.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

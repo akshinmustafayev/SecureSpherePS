@@ -1,0 +1,76 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Get-SecureSphereEnvironmentExport</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Get-SecureSphereEnvironmentExport</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Exports a list of configuration objects in XML format.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Get-SecureSphereEnvironmentExport -ItemsToExport &lt;Array&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Exports a list of configuration objects in XML format.<BR/>This method receives a list of configuration objects to export. The method exports each of these objects and their dependent objects in the XML format, and returns a zip file containing an XML file per object (grouped into folders by object type). Dependent objects are objects that are referenced by another object, which is already a part of the export. For example, if the user asks to export a DB audit policy that is related to an action set, this action set is exported (in a separate XML file) as a dependent object of the DB audit policy.<BR/>The following is the list of types of configuration objects by the Environment Export method:<BR/>1. Action sets<BR/>2. Agent Monitoring Rules<BR/>3. DB Audit policies<BR/>4. Command Groups<BR/>5. Database Table Groups<BR/>6. DB Enrichment Policies<BR/>7. Lookup Data Sets<BR/>8. Privileged Operation Groups<BR/><BR/>The user can use the ‘should-fail-on-unsupported-dependency’ query parameter to decide on method behavior when encountering a dependent object of an unsupported type as follows:<BR/>1. To ignore this dependent object and continue without exporting it. This is the default behavior.<BR/>2. To fail the method in such a case, and receive an error message.<BR/><BR/>If the user asks to export objects that do not exist in the system, or if the user logged into the system, but does not have viewpermissions, an error message is returned presenting these objects. If the logged in user does not have permissions to view a dependent object, exporting of the dependent object will cause method failure.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$ItemsToExport = @(
+    @{
+        "type"  = "db-audit-policy"; 
+        "names" = @(
+            "Default Rule - All Events",
+            "Database connections"
+        )
+    },
+    @{
+        "type"  = "lookup-data-set"; 
+        "names" = @(
+            "User Roles - From Active Directory (no domain)",
+            "Default Database Account Mapping"
+        )
+    }
+)
+
+Get-SecureSphereEnvironmentExport -ItemsToExport $ItemsToExport
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:ItemsToExport">-ItemsToExport &lt;Array&gt;
+</p><p>This parameter specifies the items to export grouped by type.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<p class="subheading">Response Body</p>
+<p>XML file</p>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10090 - Unsupported item type<BR/>IMP-10091 - Duplicate item type<BR/>IMP-10092 - The following items either were not found or the user lacks sufficient privileges to view them:<BR/>IMP-10093 - The following items, which are as of now unsupported by Environment Export, are referenced by items requested for export:</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61844.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

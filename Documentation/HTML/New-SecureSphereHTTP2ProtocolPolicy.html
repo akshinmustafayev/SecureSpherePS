@@ -1,0 +1,160 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereHTTP2ProtocolPolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereHTTP2ProtocolPolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Creates an http2 protocol policy, indicated by the path parameter: policyName</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereHTTP2ProtocolPolicy -PolicyName &lt;String&gt; -Rules &lt;HTTPPolicyParameteredRule[] or Custom array or Json&gt; -Exceptions &lt;HTTPPolicyException[] or Custom array or Json&gt; -DisplayResponsePage -BytesPerSecond &lt;UInt32&gt; -LeadTime &lt;UInt32&gt; -ResendTime &lt;UInt32&gt; -ApplyTo &lt;HTTPPolicyApplyTo[] or Custom array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Creates an http2 protocol policy, indicated by the path parameter: policyName</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+New-SecureSphereHTTP2ProtocolPolicy -PolicyName "some policy" ....
+See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/70366.htm for example.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Rules">-Rules &lt;HTTPPolicyParameteredRule[] or Custom array or Json&gt;
+</p><p>This parameter specifies the HTTPPolicyParameteredRule type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Exceptions">-Exceptions &lt;HTTPPolicyException[] or Custom array or Json&gt;
+</p><p>This parameter specifies the HTTPPolicyException type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisplayResponsePage">-DisplayResponsePage &lt;Boolean&gt;
+</p><p>This parameter specifies the value indicating whether to display the response page.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:BytesPerSecond">-BytesPerSecond &lt;UInt32&gt;
+</p><p>This parameter specifies the maximum number of Bytes Per Second that makes a connection ‘slow’.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:LeadTime">-LeadTime &lt;UInt32&gt;
+</p><p>This parameter specifies the number of seconds after which to start calculating the traffic rate.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ResendTime">-ResendTime &lt;UInt32&gt;
+</p><p>This parameter specifies the number of seconds between sending violations of continuous slow HTTP/S attack.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;HTTPPolicyApplyTo[] or Custom array or Json&gt;
+</p><p>This parameter specifies the HTTPPolicyApplyTo type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p>HTTPPolicyParameteredRule<BR/>1. Name - String type. Required. The name of the rule<BR/>2. Enabled - Boolean type. Required. Boolean value specifying whether this rule is enabled<BR/>3. Severity - String type. Required. The severity of the rule. Expected values: &quot;noAlert&quot;, &quot;informative&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;.<BR/>4. Action - String type. Required. Immediate action when this rule is invoked. Expected values: &quot;none&quot;, &quot;block&quot;<BR/>5. FollowedAction - String type. Required. Followed action after this rule is invoked. <BR/>6. Parameters - Map[String, Object] type. Required. Parameters that are specific to certain rules.<BR/><BR/>Example:<BR/>$HTTPPolicyParameteredRule = [HTTPPolicyParameteredRule]::new()<BR/>$HTTPPolicyParameteredRule.Name = &quot;Abnormally Long Header Line&quot;<BR/>$HTTPPolicyParameteredRule.Enabled = $true<BR/>$HTTPPolicyParameteredRule.Severity = &quot;high&quot;<BR/>$HTTPPolicyParameteredRule.Action = &quot;block&quot;<BR/>$HTTPPolicyParameteredRule.FollowedAction = &quot;Long IP Block&quot;<BR/>$HTTPPolicyParameteredRule.Parameters = @(<BR/>@{&quot;maxLenAllowedHeaderName&quot; = 5000},<BR/>@{&quot;maxLenAllowedHeaderValue&quot; = 30}<BR/>)</p>
+<BR/>
+<p>HTTPPolicyException<BR/>1. RuleName - String type. Required. The name of the rule to which the exception refers.<BR/>2. Comment - String type. Required. User comment for the exception.<BR/>3. Predicates - Different predicate types. Required. Predicates for which the exception will apply.<BR/><BR/>Example:<BR/>$HTTPPolicyException = [HTTPPolicyException]::new()<BR/>$HTTPPolicyException.RuleName = &quot;Abnormally Long Header Line&quot;<BR/>$HTTPPolicyException.Comment = &quot;comment&quot;<BR/>$HTTPPolicyException.Predicates = [..any predicate type object\s..; See predicate types examples]</p>
+<BR/>
+<p class="subheading">HTTPPolicyApplyTo</p>
+<p>HTTPPolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group.<BR/>3. WebServiceName - String type. Required. The name of the web service.<BR/>4. WebApplicationName - String type. Required. The name of the web application.<BR/><BR/>Example:<BR/>$HTTPPolicyApplyTo = [HTTPPolicyApplyTo]::new()<BR/>$HTTPPolicyApplyTo.SiteName = &quot;some site&quot;<BR/>$HTTPPolicyApplyTo.ServerGroupName = &quot;some group&quot;<BR/>$HTTPPolicyApplyTo.WebServiceName = &quot;some web service&quot;<BR/>$HTTPPolicyApplyTo.WebApplicationName = &quot;some web app&quot;</p>
+<BR/>
+<p class="subheading">HTTPPolicyApplyTo</p>
+<p>HTTPPolicyPredicateRequestHeaderValue<BR/>1. Type - httpRequestHeaderValue type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Name - String type. Required. <BR/>4. Values - String type. Required. List of values to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateRequestHeaderValue = [HTTPPolicyPredicateRequestHeaderValue]::new()<BR/>$HTTPPolicyPredicateRequestHeaderValue.Type = [value is unknown due to poor documentation]<BR/>$HTTPPolicyPredicateRequestHeaderValue.Operation = &quot;atLeastOne&quot;<BR/>$HTTPPolicyPredicateRequestHeaderValue.Name = &quot;some name&quot;<BR/>$HTTPPolicyPredicateRequestHeaderValue.Values = &quot;value1&quot;</p>
+<BR/>
+<p class="subheading">HTTPPolicyApplyTo</p>
+<p>HTTPPolicyPredicateRequestParameterName<BR/>1. Type - httpRequestHeaderValue type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. Required. List of values to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateRequestParameterName = [HTTPPolicyPredicateRequestParameterName]::new()<BR/>$HTTPPolicyPredicateRequestParameterName.Type = [value is unknown due to poor documentation]<BR/>$HTTPPolicyPredicateRequestParameterName.Operation = &quot;atLeastOne&quot;<BR/>$HTTPPolicyPredicateRequestParameterName.Values = &quot;value1&quot;<BR/></p>
+<BR/>
+<p class="subheading">HTTPPolicyApplyTo</p>
+<p>HTTPPolicyPredicateRequestURL<BR/>1. Type - httpRequestHeaderValue type. Required. Predicate name.<BR/>2. Match - String type. Required. Match values according to. Expected values: &quot;exact&quot;, &quot;prefix&quot;<BR/>3. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>4. Values - String type. Required. List of values to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateRequestURL = [HTTPPolicyPredicateRequestURL]::new()<BR/>$HTTPPolicyPredicateRequestURL.Type = [value is unknown due to poor documentation]<BR/>$HTTPPolicyPredicateRequestURL.Match = &quot;exact&quot;<BR/>$HTTPPolicyPredicateRequestURL.Operation = &quot;atLeastOne&quot;<BR/>$HTTPPolicyPredicateRequestURL.Values = &quot;value1&quot;<BR/></p>
+<BR/>
+<p class="subheading">HTTPPolicyApplyTo</p>
+<p>HTTPPolicyPredicateServices<BR/>1. Type - services. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Services - List of Services to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateServices = [HTTPPolicyPredicateServices]::new()<BR/>[parameters are unknown due to poor documentation]<BR/></p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>HTTPPolicyPredicateServicesService<BR/>1. SiteName - String type. Required. The name of the site in which the service is.<BR/>2. ServerGroupName - String type. Required. The name of the server group in which the service is.<BR/>3. ServiceName - String type. Required. The name of the service.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateServicesService = [HTTPPolicyPredicateServicesService]::new()<BR/>$HTTPPolicyPredicateServicesService.SiteName = &quot;site1&quot;<BR/>$HTTPPolicyPredicateServicesService.ServerGroupName = &quot;some gorup&quot;<BR/>$HTTPPolicyPredicateServicesService.ServiceName = &quot;service 1&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>HTTPPolicyPredicateSourceIPAddresses<BR/>1. Type - sourceIpAddresses. Predicate name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. UserDefined - String type. List of user defined IP addresses.<BR/>4. IpGroups - String type. List of ipGroups to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateSourceIPAddresses = [HTTPPolicyPredicateSourceIPAddresses]::new()<BR/>$HTTPPolicyPredicateSourceIPAddresses.userDefined = &quot;1.2.3.4&quot;</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10016 - The &quot;{ILLEGAL_ARGUMENT_NAME}&quot; entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10032 - The &quot;{ILLEGAL_FIELD_NAME}&quot; value entered is illegal<BR/>IMP-10062 - Unrecognized property: {PROPERTY_NAME}<BR/>IMP-10119 - Predicate type is not supported: {PREDICATE_TYPE}<BR/>IMP-10141 - Value must be greater than or equal to {MIN_VALUE}<BR/>IMP-10144 - Value must be less than or equal to {MAX_VALUE}<BR/>IMP-10146 - This is a predefined ADC item that cannot be changed<BR/>IMP-10811 - Rule {RULE_NAME} not found in policy<BR/>IMP-10831 - Multiple predicates of the type {PREDICATE_TYPE} are not supported<BR/>IMP-10904 - A followed action cannot be set for a rule with &#39;No Alert&#39; severity<BR/>IMP-10905 - One of the predicates has an empty list and cannot be saved.<BR/>IMP-10906 - Rule {RULE_NAME} not supported for this policy type<BR/>IMP-10907 - Rule {RULE_NAME} does not support parameter: {PARAMETER_NAME}<BR/>IMP-10908 - Rule {RULE_NAME} does not support parameters<BR/>IMP-10909 - The same rule has been used multiple times: {RULE_NAME}<BR/>IMP-10911 - Illegal value for Parameter {PARAMETER_NAME} in Rule {RULE_NAME}<BR/>IMP-10912 - Invalid value for parameter {PARAMETER_NAME} in rule {RULE_NAME}, policy {POLICY_NAME} – expecting an integer between {MIN_VALUE} and {MAX_VALUE}</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/70366.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

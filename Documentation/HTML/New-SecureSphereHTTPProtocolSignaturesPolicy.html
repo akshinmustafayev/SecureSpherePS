@@ -1,0 +1,129 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereHTTPProtocolSignaturesPolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereHTTPProtocolSignaturesPolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Creates an http protocol signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereHTTPProtocolSignaturesPolicy -PolicyName &lt;String&gt; -Rules &lt;HTTPPolicyParameteredRule[] or Custom array or Json&gt; -DisplayResponsePage -ApplyTo &lt;HTTPPolicyApplyTo[] or Custom array or Json&gt; -Exceptions &lt;Predicates&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Creates an http protocol signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+New-SecureSphereHTTPProtocolPolicy -PolicyName "some policy" ....
+See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66857.htm for example.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Rules">-Rules &lt;HTTPPolicyParameteredRule[] or Custom array or Json&gt;
+</p><p>This parameter specifies the HTTPPolicyParameteredRule type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisplayResponsePage">-DisplayResponsePage &lt;Boolean&gt;
+</p><p>This parameter specifies the value indicating whether to display the response page.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;HTTPPolicyApplyTo[] or Custom array or Json&gt;
+</p><p>This parameter specifies the HTTPPolicyApplyTo type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Exceptions">-Exceptions &lt;Predicates&gt;
+</p><p>This parameter specifies predicates</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">HTTPSignaturesPolicyRule</p>
+<p>HTTPSignaturesPolicyRule<BR/>1. Name - String type. Required. The name of the rule.<BR/>2. Enabled - Boolean type. Required. Boolean value specifying whether this rule is enabled.<BR/>3. Severity - String type. Required. The severity of the rule. Expected values: &quot;noAlert&quot;, &quot;informative&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;.<BR/>4. Action - String type. Required. Immediate action when this rule is invoked. Expected values: &quot;none&quot;, &quot;block&quot;<BR/>5. FollowedAction - String type. Required. Followed action after this rule is invoked.<BR/><BR/>Example:<BR/>$HTTPSignaturesPolicyRule = [HTTPSignaturesPolicyRule]::new()<BR/>$HTTPPolicyParameteredRule.Name = &quot;Abnormally Long Header Line&quot;<BR/>$HTTPPolicyParameteredRule.Enabled = $true<BR/>$HTTPPolicyParameteredRule.Severity = &quot;high&quot;<BR/>$HTTPPolicyParameteredRule.Action = &quot;block&quot;<BR/>$HTTPPolicyParameteredRule.FollowedAction = &quot;Long IP Block&quot;</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPolicyApplyTo</p>
+<p>HTTPSignaturesPolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group.<BR/>3. WebServiceName - String type. Required. The name of the web service.<BR/><BR/>Example:<BR/>$HTTPSignaturesPolicyApplyTo = [HTTPSignaturesPolicyApplyTo]::new()<BR/>$HTTPPolicyException.SiteName = &quot;some site&quot;<BR/>$HTTPPolicyException.ServerGroupName  = &quot;some group&quot;<BR/>$HTTPPolicyException.WebServiceName  = &quot;some service&quot;</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateAuthenticatedSession</p>
+<p>HTTPSignaturesPredicateAuthenticatedSession<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required.<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateAuthenticatedSession = [HTTPSignaturesPredicateAuthenticatedSession]::new()<BR/>$HTTPSignaturesPredicateAuthenticatedSession.type = &quot;some type&quot;<BR/>$HTTPSignaturesPredicateAuthenticatedSession.value = &quot;some value&quot;</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateAuthenticationResult</p>
+<p>HTTPSignaturesPredicateAuthenticationResult<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required. Match operation for values. Expected values: &quot;failed&quot;, &quot;successful&quot;<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateAuthenticationResult = [HTTPSignaturesPredicateAuthenticationResult]::new()<BR/>$HTTPSignaturesPredicateAuthenticationResult.Type = &quot;some type&quot;<BR/>$HTTPSignaturesPredicateAuthenticationResult.Value  = &quot;successful&quot;</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateAuthenticationURL</p>
+<p>HTTPSignaturesPredicateAuthenticationURL<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required. Match operation for values. Expected values: &quot;no&quot;, &quot;yes&quot;, &quot;yesWithLoginFields&quot;<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateAuthenticationURL = [HTTPSignaturesPredicateAuthenticationURL]::new()<BR/>$HTTPSignaturesPredicateAuthenticationURL.Type = &quot;some type&quot;<BR/>$HTTPSignaturesPredicateAuthenticationURL.Value  = &quot;yes&quot;<BR/></p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateServices</p>
+<p>HTTPSignaturesPredicateServices<BR/>1. Type - httpRequestHeaderValue type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Services - Service type. Required.<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateServices = [HTTPSignaturesPredicateServices]::new()<BR/>$HTTPSignaturesPredicateServices.Type = [value is unknown due to poor documentation]<BR/>$HTTPSignaturesPredicateServices.Operation = &quot;atLeastOne&quot;<BR/>$HTTPSignaturesPredicateServices.Services  = [..list of services..]<BR/></p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateServicesService</p>
+<p>HTTPSignaturesPredicateServicesService<BR/>1. SiteName - services. Required. The name of the site in which the service is.<BR/>2. ServerGroupName - String type. Required. The name of the server group in which the service is.<BR/>3. ServiceName - String type. Required. The name of the service.<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateServicesService = [HTTPSignaturesPredicateServicesService]::new()<BR/>$HTTPSignaturesPredicateServicesService.SiteName = &quot;some site&quot;<BR/>$HTTPSignaturesPredicateServicesService.ServerGroupName = &quot;some group&quot;<BR/>$HTTPSignaturesPredicateServicesService.ServiceName = &quot;some service&quot;<BR/></p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateSignaturesSignature</p>
+<p>HTTPSignaturesPredicateSignatures<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Signatures - Signature type. Required. Signatures to match.<BR/><BR/>Example:<BR/>$HTTPPolicyPredicateServicesService = [HTTPPolicyPredicateServicesService]::new()<BR/>$HTTPPolicyPredicateServicesService.Type = &quot;some type&quot;<BR/>$HTTPPolicyPredicateServicesService.Operation = &quot;atLeastOne&quot;<BR/>$HTTPPolicyPredicateServicesService.Signatures = [..list of signatures..]</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateSignaturesSignature</p>
+<p>HTTPSignaturesPredicateSignaturesSignature<BR/>1. Name - String type. Required. Name of the signature.<BR/>2. IsUserDefined - String type. Required. Specify if signature is User Defined or Predefined.<BR/><BR/>Example:<BR/>$HTTPSignaturesPredicateSignaturesSignature = [HTTPSignaturesPredicateSignaturesSignature]::new()<BR/>$HTTPSignaturesPredicateSignaturesSignature.Name = &quot;some name&quot;<BR/>$HTTPSignaturesPredicateSignaturesSignature.IsUserDefined = $true</p>
+<BR/>
+<p class="subheading">HTTPSignaturesPredicateSignaturesSignature</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10017 - Service not found<BR/>IMP-10032 - The &quot;{ILLEGAL_FIELD_NAME}&quot; value entered is illegal<BR/>IMP-10801 - Dictionary {DICTIONARY_NAME} not found<BR/>IMP-10903 - Dictionary {DICTIONARY_NAME} already exists in this policy<BR/>IMP-10904 - A followed action cannot be set for a rule with &#39;No Alert&#39; severity</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66857.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

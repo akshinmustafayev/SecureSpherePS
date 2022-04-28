@@ -1,0 +1,57 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Set-SecureSphereFlexProtectLicense</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Set-SecureSphereFlexProtectLicense</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Upload a FlexProtect license code to the system.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Set-SecureSphereFlexProtectLicense -License &lt;String&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Upload a FlexProtect license code to the system. The code is loaded in the body content.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Set-SecureSphereLicense -License "8522D6A3-C4E1-3611-Z2F9-951C70571FE0"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:License">-License &lt;String&gt;
+</p><p>This parameter specifies the FlexProtect code.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-12151 - Invalid FlexProtect code<BR/>IMP-12152 - Unable to contact Imperva Cloud<BR/>IMP-12153 - Cannot register FlexProtect on SOM deployment<BR/>IMP-12154 - Insufficient permissions to load FlexProtect license code<BR/>IMP-12155 - An error occurred during the ADC upload stage of the FlexProtect license upload<BR/>IMP-12157 - Internal Error<BR/>IMP-12158 - Expired FlexProtect code<BR/>IMP-12159 - FlexProtect is disabled<BR/>IMP-12160 - Non-WAF license products are present<BR/>IMP-12161 - Failed to upload FlexProtect license code</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/69346.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

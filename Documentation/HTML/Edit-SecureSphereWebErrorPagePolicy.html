@@ -1,0 +1,140 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebErrorPagePolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebErrorPagePolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Update the requested Web Error Page Policy.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebErrorPagePolicy -WebErrorPagePolicyName &lt;String&gt; -WebErrorPagePolicyRule &lt;URLRewriteRule or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebErrorPagePolicy -WebErrorPagePolicyName &lt;String&gt; -WebErrorPagePolicyRules &lt;URLRewriteRule[] or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Update the requested Web Error Page Policy.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$MathCriteria = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "yes";
+    }
+)
+
+$WebErrorPagePolicyRule = [WebErrorPagePolicyRule]::new()
+$WebErrorPagePolicyRule.Name = "Permission denied"
+$WebErrorPagePolicyRule.Priority = 1
+$WebErrorPagePolicyRule.ErrorPageName = "no-permission page"
+$WebErrorPagePolicyRule.MatchCriteria = $MathCriteria
+$WebErrorPagePolicyRule.Enabled = $true
+
+Edit-SecureSphereWebErrorPagePolicy -WebErrorPagePolicyName "some policy" -WebErrorPagePolicyRule $WebErrorPagePolicyRule
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$MathCriteria1 = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "yes";
+    }
+)
+
+$WebErrorPagePolicyRule1 = [WebErrorPagePolicyRule]::new()
+$WebErrorPagePolicyRule1.Name = "Permission denied"
+$WebErrorPagePolicyRule1.Priority = 1
+$WebErrorPagePolicyRule1.ErrorPageName = "no-permission page"
+$WebErrorPagePolicyRule1.MatchCriteria = $MathCriteria1
+$WebErrorPagePolicyRule1.Enabled = $true
+
+$MathCriteria2 = @(
+    @{
+        "type"= "authenticatedSession";
+        "value"= "yes";
+    }
+)
+
+$WebErrorPagePolicyRule2 = [WebErrorPagePolicyRule]::new()
+$WebErrorPagePolicyRule2.Name = "Permission denied 2"
+$WebErrorPagePolicyRule2.Priority = 1
+$WebErrorPagePolicyRule2.ErrorPageName = "no-permission page 2"
+$WebErrorPagePolicyRule2.MatchCriteria = $MathCriteria2
+$WebErrorPagePolicyRule2.Enabled = $true
+
+[WebErrorPagePolicyRule[]] $WebErrorPagePolicyRuleList = @($WebErrorPagePolicyRule1, $WebErrorPagePolicyRule2)
+
+Edit-SecureSphereWebErrorPagePolicy -WebErrorPagePolicyName "some policy" -WebErrorPagePolicyRules $WebErrorPagePolicyRuleList
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:WebErrorPagePolicyName">-WebErrorPagePolicyName &lt;String&gt;
+</p><p>This parameter specifies the policy name.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebErrorPagePolicyRule">-WebErrorPagePolicyRule &lt;URLRewriteRule or custom Array or Json&gt;
+</p><p>This parameter specifies the WebErrorPagePolicyRule.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebErrorPagePolicyRules">-WebErrorPagePolicyRules &lt;URLRewriteRule[] or custom Array or Json&gt;
+</p><p>This parameter specifies the array of WebErrorPagePolicyRules.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>WebErrorPagePolicyRule contains the following parameters:<BR/>1. Name - String value. Specifies the rule name. This parameter is mandatory. <BR/>2. Priority - UInt32 value. Defines the order in which rules are checked. Lowest priority is checked first. Must be unique among rules in the same group. This parameter is mandatory. <BR/>3. ErrorPageName - String value. Name of the error page to display when invoked. Must be an existing Web Error Page.<BR/>4. MatchCriteria - String value. This parameter is mandatory. See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/70344.htm for the details<BR/>5. Enabled - Boolean value. Enables or disables the rule. This parameter is mandatory.<BR/><BR/>Example:<BR/>$MathCriteria = @(<BR/>    @{<BR/>        &quot;type&quot;= &quot;authenticatedSession&quot;;<BR/>        &quot;value&quot;= &quot;yes&quot;;<BR/>    }<BR/>)<BR/><BR/>$WebErrorPagePolicyRule = [WebErrorPagePolicyRule]::new()<BR/>$WebErrorPagePolicyRule.Name = &quot;Permission denied&quot;<BR/>$WebErrorPagePolicyRule.Priority = 1<BR/>$WebErrorPagePolicyRule.ErrorPageName = &quot;no-permission page&quot;<BR/>$WebErrorPagePolicyRule.MatchCriteria = $MathCriteria<BR/>$WebErrorPagePolicyRule.Enabled = $true</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10119 - Predicate type is not supported: {predicateName}<BR/>IMP-10351 - Required field name cannot be left blank OR Required field &#39;errorPageName&#39; cannot be left blank<BR/>IMP-10681 - Please specify the priority for this rule<BR/>IMP-10682 - Two rules or more have the same priority.</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/70348.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

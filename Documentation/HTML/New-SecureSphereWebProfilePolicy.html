@@ -1,0 +1,153 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereWebProfilePolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereWebProfilePolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Creates a web profile policy, indicated by the path parameter: policyName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereWebProfilePolicy -PolicyName &lt;String&gt; -Rules &lt;WebProfilePolicyParameteredRule or custom Array or Json&gt; -Exceptions &lt;WebCorrelationPolicyException or custom Array or Json&gt; -ApuConfig &lt;WebProfilePolicyAPURuleConfig or custom Array or Json&gt; -DisableLearning -DisplayResponsePage -ApplyTo &lt;WebProfilePolicyApplyTo or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Creates a web profile policy, indicated by the path parameter: policyName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$WebProfilePolicyParameteredRule = [WebProfilePolicyParameteredRule]::new()
+$WebProfilePolicyParameteredRule.Name = "Cookie Injection"
+$WebProfilePolicyParameteredRule.Enabled = $true
+$WebProfilePolicyParameteredRule.Severity = "high"
+$WebProfilePolicyParameteredRule.Action = "none"
+$WebProfilePolicyParameteredRule.FollowedAction = "Short IP Block"
+
+$WebProfilePolicyAPURuleConfig = [WebProfilePolicyAPURuleConfig]::new()
+$WebProfilePolicyAPURuleConfig.Enabled = $false
+$WebProfilePolicyAPURuleConfig.Hours = 10
+$WebProfilePolicyAPURuleConfig.Occurrences = 50
+$WebProfilePolicyAPURuleConfig.Sources = 50
+
+$WebProfilePolicyApplyTo = [WebProfilePolicyApplyTo]::new()
+$WebProfilePolicyApplyTo.SiteName = "some site"
+$WebProfilePolicyApplyTo.ServerGroupName = "some group"
+$WebProfilePolicyApplyTo.WebServiceName = "some web service"
+$WebProfilePolicyApplyTo.WebApplicationName = "some web app"
+
+New-SecureSphereWebProfilePolicy -PolicyName "some policy" -Rules $WebProfilePolicyParameteredRule -DisableLearning $true -DisplayResponsePage $true -ApplyTo $WebProfilePolicyApplyTo -ApuConfig $WebProfilePolicyAPURuleConfig -Exceptions [predicates]
+
+Due to lack of official documentation it is hard to specify $Exceptions argument. See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/69913.htm for the examples instead.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Rules">-Rules &lt;WebProfilePolicyParameteredRule or custom Array or Json&gt;
+</p><p>This parameter specifies all applied rules.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Exceptions">-Exceptions &lt;WebCorrelationPolicyException or custom Array or Json&gt;
+</p><p>This parameter specifies exceptions to this policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApuConfig">-ApuConfig &lt;WebProfilePolicyAPURuleConfig or custom Array or Json&gt;
+</p><p>This parameter specifies auto profile update configuration per rule.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisableLearning">-DisableLearning &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value specifying whether to disable learning.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisplayResponsePage">-DisplayResponsePage &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value specifying whether to display response page.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;WebProfilePolicyApplyTo or custom Array or Json&gt;
+</p><p>This parameter specifies sites or Server groups or Services or Applications to apply this policy to.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p>WebProfilePolicyParameteredRule<BR/>1. Name - String type. Required. The name of the rule<BR/>2. Enabled - Boolean type. Required. Boolean value specifying whether this rule is enabled<BR/>3. Severity - String type. Required. The severity of the rule. Expected values: &quot;noAlert&quot;, &quot;informative&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;.<BR/>4. Action - String type. Required. Immediate action when this rule is invoked. Expected values: &quot;none&quot;, &quot;block&quot;<BR/>5. FollowedAction - String type. Required. Followed action after this rule is invoked. <BR/>6. Parameters - Map[String, Object] type. Required. Parameters that are specific to certain rules.<BR/><BR/>Example:<BR/>$WebProfilePolicyParameteredRule = [WebProfilePolicyParameteredRule]::new()<BR/>$WebProfilePolicyParameteredRule.Name = &quot;Cookie Injection&quot;<BR/>$WebProfilePolicyParameteredRule.Enabled = $true<BR/>$WebProfilePolicyParameteredRule.Severity = &quot;high&quot;<BR/>$WebProfilePolicyParameteredRule.Action = &quot;none&quot;<BR/>$WebProfilePolicyParameteredRule.FollowedAction = &quot;Short IP Block&quot;</p>
+<BR/>
+<p>WebProfilePolicyException<BR/>1. RuleName - String type. Required. The name of the rule to which the exception refers.<BR/>2. Comment - String type. Required. User comment for the exception.<BR/>3. Predicates - Different predicate types. Required. Predicates for which the exception will apply.<BR/><BR/>Example:<BR/>$WebProfilePolicyException = [WebProfilePolicyException]::new()<BR/>$WebProfilePolicyException.RuleName = &quot;Forceful Browsing&quot;<BR/>$WebProfilePolicyException.Comment = &quot;comment&quot;<BR/>$WebProfilePolicyException.Predicates = [..any predicate type object\s..; See predicate types examples]</p>
+<BR/>
+<p>WebProfilePolicyAPURuleConfig<BR/>1. Enabled - Boolean type. Boolean value specifying whether this configuration is enabled<BR/>2. Hours - UInt32 type. SecureSphere will take action that is specific to the rule if the rule was invoked from at least S different sources and was seen this way at least N times altogether over at least H different hours.<BR/>3. Occurrences - UInt32 type. SecureSphere will take action that is specific to the rule if the rule was invoked from at least S different sources and was seen this way at least N times altogether over at least H different hours.<BR/>4. Sources - UInt32 type. SecureSphere will take action that is specific to the rule if the rule was invoked from at least S different sources and was seen this way at least N times altogether over at least H different hours.<BR/><BR/>Example:<BR/>$WebProfilePolicyAPURuleConfig = [WebProfilePolicyAPURuleConfig]::new()<BR/>$WebProfilePolicyAPURuleConfig.Enabled = $false<BR/>$WebProfilePolicyAPURuleConfig.Hours = 10<BR/>$WebProfilePolicyAPURuleConfig.Occurrences = 50<BR/>$WebProfilePolicyAPURuleConfig.Sources = 50<BR/><BR/><BR/><BR/></p>
+<BR/>
+<p>WebProfilePolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group.<BR/>3. WebServiceName - String type. Required. The name of the web service.<BR/>4. WebApplicationName - String type. Required. The name of the web application.<BR/><BR/>Example:<BR/>$WebProfilePolicyApplyTo = [WebProfilePolicyApplyTo]::new()<BR/>$WebProfilePolicyApplyTo.SiteName = &quot;some site&quot;<BR/>$WebProfilePolicyApplyTo.ServerGroupName = &quot;some group&quot;<BR/>$WebProfilePolicyApplyTo.WebServiceName = &quot;some web service&quot;<BR/>$WebProfilePolicyApplyTo.WebApplicationName = &quot;some web app&quot;</p>
+<BR/>
+<p>WebProfilePolicyPredicateHTTPVersion<BR/>1. Type - httpRequestHeaderValue type. Predicate name.<BR/>2. Operation - String type. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Values - String type. List of values to match.<BR/><BR/>Example:<BR/>$WebProfilePolicyPredicateHTTPVersion = [WebProfilePolicyPredicateHTTPVersion]::new()<BR/>$WebProfilePolicyPredicateHTTPVersion.Type = [value is unknown due to poor documentation]<BR/>$WebProfilePolicyPredicateHTTPVersion.Operation = &quot;atLeastOne&quot;<BR/>$WebProfilePolicyPredicateHTTPVersion.Values = &quot;value1&quot;<BR/></p>
+<BR/>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10014 - Application not found<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10016 - The “{ILLEGAL_ARGUMENT_NAME}” entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10032 - The “{ILLEGAL_FIELD_NAME}” value entered is illegal<BR/>IMP-10119 - Predicate type is not supported: {PREDICATE_TYPE}<BR/>IMP-10811 - Rule {RULE_NAME} not found in policy<BR/>IMP-10831 - Multiple predicates of the type {PREDICATE_TYPE} are not supported<BR/>IMP-10904 - A followed action cannot be set for a rule with &#39;No Alert&#39; severity<BR/>IMP-10905 - One of the predicates has an empty list and cannot be saved<BR/>IMP-10906 - Rule {RULE_NAME} not supported for this policy type<BR/>IMP-10907 - Rule {RULE_NAME} does not support parameter: {PARAMETER_NAME}<BR/>IMP-10908 - Rule {RULE_NAME} does not support parameters<BR/>IMP-10909 - The same rule has been used multiple times: {RULE_NAME}<BR/>IMP-10910 - Rule {RULE_NAME} does not support Automatic Profile Update configuration<BR/>IMP-10911 - Illegal value for Parameter {PARAMETER_NAME} in Rule {RULE_NAME}</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/69913.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

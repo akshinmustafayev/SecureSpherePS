@@ -1,0 +1,144 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebReverseProxyIPAddress</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebReverseProxyIPAddress</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Update an IP address indicated by the path parameter ip IP to the gateway indicated by the path parameter and gatewayName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebReverseProxyIPAddress -GatewayName &lt;String&gt; -IPAddress &lt;String&gt; [-NetworkInterface &lt;String&gt;] [-Mask [&lt;UInt32&gt;]] [-VirtualAddress] [-VrId &lt;UInt32&gt;] [-NextHop [&lt;String&gt;]] [-Comment &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebReverseProxyIPAddress -GatewayName &lt;String&gt; -IPAddress &lt;String&gt; [-NetworkInterface &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Update an IP address indicated by the path parameter ip IP to the gateway indicated by the path parameter and gatewayName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Edit-SecureSphereWebReverseProxyIPAddress -GatewayName "gw_01" -IPAddress "10.1.1.12" -NetworkInterface "eth1" -Mask 24 -NextHop "10.2.0.255/24"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:GatewayName">-GatewayName &lt;String&gt;
+</p><p>This parameter specifies the name of the gateway to which the IP will be assigned.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:IPAddress">-IPAddress &lt;String&gt;
+</p><p>This parameter specifies the IP address to add, without subnet mask.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:NetworkInterface">-NetworkInterface &lt;String&gt;
+</p><p>This parameter specifies the name of network interface to which the IP will be assigned. Interfaces can be retrieved by calling &quot;Get Gateway&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Mask">-Mask &lt;UInt32&gt;
+</p><p>This parameter specifies the Subnet mask.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>0-32<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:VirtualAddress">-VirtualAddress &lt;Boolean&gt;
+</p><p>This parameter specifies if IP is virtual.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>False</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:VrId">-VrId &lt;UInt32&gt;
+</p><p>This parameter specifies the Id of virtual router. Required when virtual address is true. VR Id is defined in Virtual Routers definitions.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>1-255<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:NextHop">-NextHop &lt;String&gt;
+</p><p>This parameter specifies the name IP address of the next hop. Value must be in CIDR notation.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Comment">-Comment &lt;String&gt;
+</p><p>This parameter specifies the comment.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10016 - The &quot;{paramName}&quot; entered is illegal<BR/>IMP-10102 - Gateway not found<BR/>IMP-10151 - Property &quot;propertyName&quot; cannot be edited. Note: The only comment that can be updated is for Management and LAN IP addresses.<BR/>IMP-10152 - Invalid IP address in &quot;{propertyName}&quot; field<BR/>IMP-10179 - Unknown IP address<BR/>IMP-10183 - Next hop must be in the same network as the IP address<BR/>IMP-12601 - Network interface does not exist<BR/>IMP-12602 - Virtual Router ID does not exist</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66819.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

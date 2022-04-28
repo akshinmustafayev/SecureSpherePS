@@ -1,0 +1,150 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebService</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebService</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Updates the web service indicated by the path parameters siteName, serverGroupName and serviceName. The web service attributes that can be updated are listed below.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebService -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; [-NewName &lt;String&gt;] [-Ports &lt;UInt32[]&gt;] [-SslPorts &lt;UInt32[]&gt;] [-DefaultApplication &lt;String&gt;] [-TrpMode] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebService -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; [-NewName &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 3</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebService -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; [-Ports &lt;UInt32[]&gt;] [-SslPorts &lt;UInt32[]&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Updates the web service indicated by the path parameters siteName, serverGroupName and serviceName. The web service attributes that can be updated are listed below.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Edit-SecureSphereWebService -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -NewName "Orders" -Ports @(80, 8080) -DefaultApplication "WebStore-MainApp"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent site of the web service to update.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent server group of the web service to update.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the name of the web service to update.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:NewName">-NewName &lt;String&gt;
+</p><p>This parameter specifies the new web service name.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1, Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>80</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Ports">-Ports &lt;UInt32[]&gt;
+</p><p>This parameter specifies the new web service ports list. Default set to 80.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1, Parameter Set 3</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>80</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>0-65535<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:SslPorts">-SslPorts &lt;UInt32[]&gt;
+</p><p>This parameter specifies the new web service SSL ports list. Default set to 443.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1, Parameter Set 3</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>443</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>0-65535<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DefaultApplication">-DefaultApplication &lt;String&gt;
+</p><p>This parameter specifies the application that new service is mapped to by default.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>443</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:TrpMode">-TrpMode &lt;Boolean&gt;
+</p><p>This parameter indicates that the service is running in Transparent Reverse Proxy mode. Default set to false.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists ‐ please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10014 - Application not found<BR/>IMP-10017 - Service not found<BR/>IMP-10019 - Port has already been configured for a different service in this Server Group<BR/>IMP-10020 - Port must be between 1 and 65535<BR/>IMP-10071 - Name field must be populated<BR/>IMP-10086 - Cannot create the web service, the number of Instances exceeds the system limitation<BR/>IMP-10145 - Field length must be between 1 and 200<BR/>IMP-10181 - Port {PORT_NAME} has already been configured for this service</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61850.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

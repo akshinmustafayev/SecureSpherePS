@@ -1,0 +1,136 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereSSLSettingsGlobalObject</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereSSLSettingsGlobalObject</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Create a Global Object for SSL Settings.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereSSLSettingsGlobalObject -SslSettingsName &lt;String&gt; [-SslProtocolVersions &lt;String[]&gt;] -EnforceRPServerSideCipherPriority -ActiveCiphers &lt;String[]&gt; [-ActiveEllipticCurves &lt;String[]&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereSSLSettingsGlobalObject -SslSettingsName &lt;String&gt; [-SslProtocolVersions &lt;String[]&gt;] -EnforceRPServerSideCipherPriority -ActiveCiphers &lt;String[]&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Create a Global Object for SSL Settings. SSL Settings contains the SSL/TLS stack parameters that will be used by the SSL/TLS RP Client (RP Inbound) or RP Server (RP Outbound). This is used for URP, KRP and TRP. If no object is assigned to the RP rules, the default GW defined settings will be used.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+New-SecureSphereSSLSettingsGlobalObject -SslSettingsName "something" -SslProtocolVersions "TLSv1.2", "TLSv1.1" -EnforceRPServerSideCipherPriority $true -ActiveCiphers "TLS_RSA_WITH_AES_256_CBC_SHA", "TLS_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384" -ActiveEllipticCurves "secp256r1", "secp521r1"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SslSettingsName">-SslSettingsName &lt;String&gt;
+</p><p>This parameter specifies the name of SSL settings object to create.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:SslProtocolVersions">-SslProtocolVersions &lt;String[]&gt;
+</p><p>This parameter specifies the supported TLS versions.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>TLSv1<br/>
+TLSv1.1<br/>
+TLSv1.2<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:EnforceRPServerSideCipherPriority">-EnforceRPServerSideCipherPriority &lt;Boolean&gt;
+</p><p>Enforce RP server side cipher and Elliptic Curves priority according to the active ciphers list and Elliptic Curves list order. Default is false if not specified.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ActiveCiphers">-ActiveCiphers &lt;String[]&gt;
+</p><p>This parameter specifies the active ciphers list, order set priority.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>TLS_RSA_WITH_AES_256_CBC_SHA<br/>
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br/>
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br/>
+TLS_RSA_WITH_AES_128_CBC_SHA<br/>
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br/>
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br/>
+TLS_RSA_WITH_AES_256_CBC_SHA256<br/>
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256<br/>
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br/>
+TLS_RSA_WITH_AES_128_CBC_SHA256<br/>
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256<br/>
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br/>
+TLS_RSA_WITH_AES_128_GCM_SHA256<br/>
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br/>
+TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA<br/>
+TLS_RSA_WITH_AES_256_GCM_SHA384<br/>
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br/>
+TLS_RSA_WITH_3DES_EDE_CBC_SHA<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ActiveEllipticCurves">-ActiveEllipticCurves &lt;String[]&gt;
+</p><p>This parameter specifies the active Elliptic Curves list, order sets priority.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>secp192r1<br/>
+secp224r1<br/>
+secp256r1<br/>
+secp384r1<br/>
+secp521r1<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-12902 - Wrong or non-existing cipher suite name(s) : {0}<BR/>IMP-12903 - Wrong or non-existing elliptic curve name(s) : {0}<BR/>IMP-12904 - Wrong or non-existing SSL protocol version name(s) : {0}<BR/>IMP-12905 - At least one SSL protocol must be selected<BR/>IMP-12906 - At least one elliptic curve must be selected when using an ECDHE cipher<BR/>IMP-12907 - No supporting cipher for protocol(s): {0}.&quot;<BR/>IMP-12909 - No supported protocol for active cipher(s): {0}<BR/>IMP-12911 - Illegal SSL settings name</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66830.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

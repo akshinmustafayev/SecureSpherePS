@@ -1,0 +1,228 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebOutboundKRPRule</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebOutboundKRPRule</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Updates a KRP Outbound rule, a decision rule which defines how to handle incoming Web traffic, indicated by the path parameter priority, for the given Web service indicated by the path parameters siteName, serverGroupName and webServiceName, for the KRP Inbound rule indicated by the path parameters aliasName and gatewayPort.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebOutboundKRPRule -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -GatewayGroupName &lt;String&gt; -AliasName &lt;String&gt; -GatewayPort &lt;UInt32&gt; -Priority &lt;UInt32&gt; [-ExternalHost &lt;String&gt;] [-UrlPrefix &lt;String&gt;] -InternalIpHost &lt;String&gt; -ServerPort &lt;UInt32&gt; [-Encrypt] [-ClientAuthenticationRules &lt;String&gt;] [-ValidateServerCertificate] [-ClientCertificate &lt;String&gt;] [-ServerSideSslSettings &lt;String&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebOutboundKRPRule -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -GatewayGroupName &lt;String&gt; -AliasName &lt;String&gt; -GatewayPort &lt;UInt32&gt; -Priority &lt;UInt32&gt; -InternalIpHost &lt;String&gt; -ServerPort &lt;UInt32&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Updates a KRP Outbound rule, a decision rule which defines how to handle incoming Web traffic, indicated by the path parameter priority, for the given Web service indicated by the path parameters siteName, serverGroupName and webServiceName, for the KRP Inbound rule indicated by the path parameters aliasName and gatewayPort.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Edit-SecureSphereWebOutboundKRPRule -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -GatewayGroupName "myServerGroup" -AliasName "krp_alias" -GatewayPort 80 -Priority 3 -UrlPrefix "/avbc" -ExternalHost "www.imperva.com" -InternalIpHost "10.1.1.10" -ServerPort 80 -Encrypt $true -ClientAuthenticationRules "Default Authentication Rule"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent site of the web application.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent server group of the web application.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the name of the parent service of the web application.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:GatewayGroupName">-GatewayGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the server group that contains the gateways on which the alias was created.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:AliasName">-AliasName &lt;String&gt;
+</p><p>This parameter specifies the name of the alias that defines the inbound KRP rule.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:GatewayPort">-GatewayPort &lt;UInt32&gt;
+</p><p>This parameter specifies the port that defines the inbound KRP rule.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>UInt32</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Priority">-Priority &lt;UInt32&gt;
+</p><p>This parameter sets the decision rule’s priority.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ExternalHost">-ExternalHost &lt;String&gt;
+</p><p>This parameter specifies the external host name for which this rule will be applied.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:UrlPrefix">-UrlPrefix &lt;String&gt;
+</p><p>This parameter specifies the prefix of URLs (for example, /login/) for which traffic is to be directed. The string must begin with a forward slash &quot;/&quot;. When missing – url prefix is &quot;any&quot;.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:InternalIpHost">-InternalIpHost &lt;String&gt;
+</p><p>This parameter specifies the IP address or the host name of the Web server to which traffic is forwarded.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerPort">-ServerPort &lt;UInt32&gt;
+</p><p>This parameter specifies the port number on the Web server to which traffic is forwarded.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>(All)</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Encrypt">-Encrypt &lt;Boolean&gt;
+</p><p>This parameter indicates whether to encrypt the connection between the SecureSphere gateway and the Web server.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ClientAuthenticationRules">-ClientAuthenticationRules &lt;String&gt;
+</p><p>This parameter specifies the Client Authentication Rules that determine the course of action taken when certificate validation succeeds or fails.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ValidateServerCertificate">-ValidateServerCertificate &lt;Boolean&gt;
+</p><p>This parameter validates the certificate presented by the web server.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ClientCertificate">-ClientCertificate &lt;String&gt;
+</p><p>This parameter sets the client certificates to present to the web server.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>No Client Certificate</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerSideSslSettings">-ServerSideSslSettings &lt;String&gt;
+</p><p>This parameter specifies the SSL Settings global object to be used</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>Default is to use GW default settings.</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10013 - Gateway Group not found<BR/>IMP-10016 - The priority entered is illegal<BR/>IMP-10016 - The &quot;externalHost&quot; entered is illegal<BR/>IMP-10016 - The &quot;urlPrefix&quot; entered is illegal<BR/>IMP-10016 - The host/IP format is of the internalIpHost entered is illegal<BR/>IMP-10016 - The encrypt entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10020 - Port must be between 1 and 65535<BR/>IMP-10051 - KRP Alias not found<BR/>IMP-10052 - The Client Authentication Rule not found<BR/>IMP-10053 - KRP inbound rule not found<BR/>IMP-10402 - Client Certificate specified not found<BR/>IMP-10403 - The Validate Server Certificate option cannot be enabled without at least one Certificate Authority defined in Global Objects.<BR/>IMP-10412 - To correctly configure client authentication a Server Certificate should be defined<BR/>IMP-10413 - To correctly configure client authentication for a certain URL Prefix both a Client Authentication Authority and a Client Authentication Rule should be defined<BR/>IMP-10414 - Server SSL Negotiation Settings cannot be configured without &#39;Encrypt&#39; enabled.<BR/>IMP-12901 - SSL Settings Global Object not found</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61883.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

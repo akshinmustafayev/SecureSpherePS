@@ -1,0 +1,82 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Get-SecureSphereSystemDefinitionValue</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Get-SecureSphereSystemDefinitionValue</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Returns the value of the system definition with the name indicated by the parameter ParamName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Get-SecureSphereSystemDefinitionValue -ParamName &lt;String&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Returns the value of the system definition with the name indicated by the parameter ParamName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Get-SecureSphereSystemDefinitionValue -ParamName "default-application-group"
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Get-SecureSphereSystemDefinitionValue -ParamName "server-group-auto-creation"
+</pre>
+</div>
+</div>
+<p class="subheading">EXAMPLE 3</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Get-SecureSphereSystemDefinitionValue -ParamName "service-auto-creation"
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:ParamName">-ParamName &lt;String&gt;
+</p><p>Specifies system definition name</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Accepted Values:</p></td><td><p>default-application-group<br/>
+server-group-auto-creation<br/>
+service-auto-creation<br/>
+</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<p class="subheading">Responce body</p>
+<p>{<BR/>&quot;value&quot;:&quot;application group 1&quot;<BR/>}<BR/>{<BR/>&quot;value&quot;:true<BR/>}</p>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">Error Codes</p>
+<p>default-application-group<BR/>                The application group to which new applications are added by default<BR/>                Application Group Name<BR/><BR/><BR/>server-group-auto-creation<BR/>               Server group is created automatically on agent registration, if it does not exist<BR/>               true/false<BR/><BR/>service-auto-creation<BR/>              Service is created automatically on channel discovery.<BR/>              true/false</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10016 - The \&quot;System Definition\&quot; entered is illegal</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/61832.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

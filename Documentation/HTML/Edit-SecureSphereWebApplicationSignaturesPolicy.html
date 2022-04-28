@@ -1,0 +1,141 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Edit-SecureSphereWebApplicationSignaturesPolicy</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Edit-SecureSphereWebApplicationSignaturesPolicy</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Updates a web application signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Edit-SecureSphereWebApplicationSignaturesPolicy -PolicyName &lt;String&gt; -Rules &lt;WebApplicationSignaturesPolicyRule or custom Array or Json&gt; -DisplayResponsePage -ApplyTo &lt;WebApplicationSignaturesPolicyApplyTo or custom Array or Json&gt; -Exceptions &lt;Predicates or custom Array or Json&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Updates a web application signatures policy, indicated by the path parameter: policyName.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$WebApplicationSignaturesPolicyRule = [WebApplicationSignaturesPolicyRule]::new()
+$WebApplicationSignaturesPolicyRule.Name = "Recommended for Blocking for General Applications - Legacy"
+$WebApplicationSignaturesPolicyRule.Enabled = $true
+$WebApplicationSignaturesPolicyRule.Severity = "informative"
+$WebApplicationSignaturesPolicyRule.Action = "none"
+
+$WebApplicationSignaturesPolicyApplyTo = [WebApplicationSignaturesPolicyApplyTo]::new()
+$WebApplicationSignaturesPolicyApplyTo.SiteName = "some site"
+$WebApplicationSignaturesPolicyApplyTo.ServerGroupName = "some group"
+$WebApplicationSignaturesPolicyApplyTo.WebServiceName = "some web service"
+$WebApplicationSignaturesPolicyApplyTo.WebApplicationName = "some web app"
+
+Edit-SecureSphereWebApplicationSignaturesPolicy -PolicyName "some policy" -Rules $WebApplicationSignaturesPolicyRule -DisplayResponsePage $true -ApplyTo $WebApplicationSignaturesPolicyApplyTo -Exceptions [predicates]
+
+Due to lack of official documentation it is hard to specify $Exceptions argument. See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66869.htm for the examples instead.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:PolicyName">-PolicyName &lt;String&gt;
+</p><p>This parameter specifies the name of the policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Rules">-Rules &lt;WebApplicationSignaturesPolicyRule or custom Array or Json&gt;
+</p><p>This parameter specifies all applied rules.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:DisplayResponsePage">-DisplayResponsePage &lt;Boolean&gt;
+</p><p>This parameter specifies the boolean value specifying whether to display response page in alerts.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ApplyTo">-ApplyTo &lt;WebApplicationSignaturesPolicyApplyTo or custom Array or Json&gt;
+</p><p>This parameter specifies all web applications to which the policy is applied.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Exceptions">-Exceptions &lt;Predicates or custom Array or Json&gt;
+</p><p>This parameter specifies exceptions to this policy.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p>WebApplicationSignaturesPolicyRule<BR/>1. Name - String type. The name of the dictionary.<BR/>2. Enabled - Boolean type. Boolean value specifying whether this rule is enabled.<BR/>3. Severity - String type. The severity of the rule. Expected values: &quot;noAlert&quot;, &quot;informative&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;.<BR/>4. Action - String type. Immediate action when this rule is invoked. Expected values: &quot;none&quot;, &quot;block&quot;<BR/>5. FollowedAction - String type. Followed action after this rule is invoked.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPolicyRule = [WebApplicationSignaturesPolicyRule]::new()<BR/>$WebApplicationSignaturesPolicyRule.Name = &quot;Recommended for Blocking for General Applications - Legacy&quot;<BR/>$WebApplicationSignaturesPolicyRule.Enabled = $true<BR/>$WebApplicationSignaturesPolicyRule.Severity = &quot;informative&quot;<BR/>$WebApplicationSignaturesPolicyRule.Action = &quot;none&quot;</p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPolicyApplyTo<BR/>1. SiteName - String type. Required. The name of the site.<BR/>2. ServerGroupName - String type. Required. The name of the server group.<BR/>3. WebServiceName - String type. Required. The name of the web service.<BR/>4. WebApplicationName - String type. Required. The name of the web application.<BR/>5. Operation - String type. Required. The operation to perform on the ApplyTo entry. Expected values: &quot;add&quot;, &quot;remove&quot;<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPolicyApplyTo = [WebApplicationSignaturesPolicyApplyTo]::new()<BR/>$WebApplicationSignaturesPolicyApplyTo.SiteName = &quot;some site&quot;<BR/>$WebApplicationSignaturesPolicyApplyTo.ServerGroupName = &quot;some group&quot;<BR/>$WebApplicationSignaturesPolicyApplyTo.WebServiceName = &quot;some web service&quot;<BR/>$WebApplicationSignaturesPolicyApplyTo.WebApplicationName = &quot;some web app&quot;<BR/>$WebApplicationSignaturesPolicyApplyTo.Operation = &quot;add&quot;</p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateAuthenticatedSession<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateAuthenticatedSession = [WebApplicationSignaturesPredicateAuthenticatedSession]::new()<BR/>$WebApplicationSignaturesPredicateAuthenticatedSession.type = &quot;some type&quot;<BR/>$WebApplicationSignaturesPredicateAuthenticatedSession.value = &quot;some value&quot;</p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateAuthenticationResult<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required. Match operation for values. Expected values: &quot;failed&quot;, &quot;successful&quot;<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateAuthenticationResult = [WebApplicationSignaturesPredicateAuthenticationResult]::new()<BR/>$WebApplicationSignaturesPredicateAuthenticationResult.Type = &quot;some type&quot;<BR/>$WebApplicationSignaturesPredicateAuthenticationResult.Value  = &quot;successful&quot;</p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateAuthenticationURL<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Value - String type. Required. Match operation for values. Expected values: &quot;no&quot;, &quot;yes&quot;, &quot;yesWithLoginFields&quot;<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateAuthenticationURL = [WebApplicationSignaturesPredicateAuthenticationURL]::new()<BR/>$WebApplicationSignaturesPredicateAuthenticationURL.Type = &quot;some type&quot;<BR/>$WebApplicationSignaturesPredicateAuthenticationURL.Value  = &quot;yes&quot;<BR/></p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateServices<BR/>1. Type - httpRequestHeaderValue type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Services - Service type. Required.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateServices = [WebApplicationSignaturesPredicateServices]::new()<BR/>$WebApplicationSignaturesPredicateServices.Type = [value is unknown due to poor documentation]<BR/>$WebApplicationSignaturesPredicateServices.Operation = &quot;atLeastOne&quot;<BR/>$WebApplicationSignaturesPredicateServices.Services  = [..list of services..]<BR/></p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateServicesService<BR/>1. SiteName - services. Required. The name of the site in which the service is.<BR/>2. ServerGroupName - String type. Required. The name of the server group in which the service is.<BR/>3. ServiceName - String type. Required. The name of the service.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateServicesService = [WebApplicationSignaturesPredicateServicesService]::new()<BR/>$WebApplicationSignaturesPredicateServicesService.SiteName = &quot;some site&quot;<BR/>$WebApplicationSignaturesPredicateServicesService.ServerGroupName = &quot;some group&quot;<BR/>$WebApplicationSignaturesPredicateServicesService.ServiceName = &quot;some service&quot;<BR/></p>
+<BR/>
+<p class="subheading">WebApplicationSignaturesPolicyApplyTo</p>
+<p>WebApplicationSignaturesPredicateSignatures<BR/>1. Type - String type. Required. Predicate name.<BR/>2. Operation - String type. Required. Match operation for values. Expected values: &quot;atLeastOne&quot;, &quot;excludeAll&quot;<BR/>3. Signatures - Signature type. Required. Signatures to match.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateSignatures = [WebApplicationSignaturesPredicateSignatures]::new()<BR/>$WebApplicationSignaturesPredicateSignatures.Type = &quot;some type&quot;<BR/>$WebApplicationSignaturesPredicateSignatures.Operation = &quot;atLeastOne&quot;<BR/>$WebApplicationSignaturesPredicateSignatures.Signatures = [..list of signatures..]</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>WebApplicationSignaturesPredicateSignaturesSignature<BR/>1. Name - String type. Required. Name of the signature.<BR/>2. IsUserDefined - String type. Required. Specify if signature is User Defined or Predefined.<BR/><BR/>Example:<BR/>$WebApplicationSignaturesPredicateSignaturesSignature = [WebApplicationSignaturesPredicateSignaturesSignature]::new()<BR/>$WebApplicationSignaturesPredicateSignaturesSignature.Name = &quot;some name&quot;<BR/>$WebApplicationSignaturesPredicateSignaturesSignature.IsUserDefined = $true</p>
+<BR/>
+<p class="subheading">Error Codes</p>
+<p>IMP-10005 - An item with this name already exists - please select a different name<BR/>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10014 - Application not found<BR/>IMP-10015 - Can not create {ENTITY_NAME} since the body parameter {MISSING_PARAMETER} is missing<BR/>IMP-10017 - Service not found<BR/>IMP-10032 - The &quot;{ILLEGAL_FIELD_NAME}&quot; value entered is illegal<BR/>IMP-10801 - Dictionary {DICTIONARY_NAME} not found<BR/>IMP-10903 - Dictionary {DICTIONARY_NAME} already exists in this policy<BR/>IMP-10904 - A followed action cannot be set for a rule with &#39;No Alert&#39; severity</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66869.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

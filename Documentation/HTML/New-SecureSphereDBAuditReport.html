@@ -1,0 +1,145 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>New-SecureSphereDBAuditReport</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">New-SecureSphereDBAuditReport</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Creates a new DB audit report.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+New-SecureSphereDBAuditReport -ReportName &lt;String&gt; -Report &lt;Array&gt; [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Creates a new DB audit report.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+$Report = @{
+    "columns"       = @(
+        @{
+            "name"        = "Database";
+            "aggregation" = "count-distinct";
+        },
+        @{
+            "name"        = "Service";
+            "aggregation" = "group-by-id-name-of-service-id-name";
+        },
+        @{
+            "name"        = "Destination IP";
+            "aggregation" = "group-by";
+        }
+    );
+    "filters"       = @(
+        @{
+            "values"              = @( "5593158133644499881" );
+            "column-name"         = "Server Group";
+            "operation"           = "equals";
+            "user-defined-values" = @();
+        },
+        @{
+            "type"                = "dbHostname";
+            "values"              = @();
+            "column-name"         = "Lookup Data Set";
+            "operation"           = "in";
+            "user-defined-values" = @( "db1" );
+            "data-set"            = "Default Database Account Mapping"
+        },
+        @{
+            "values"              = @( "ddd" );
+            "column-name"         = "User";
+            "operation"           = "not-equals";
+            "user-defined-values" = @();
+        },
+        @{
+            "values"              = @( "Oracle", "Db2" );
+            "column-name"         = "Service Type";
+            "operation"           = "equals";
+            "user-defined-values" = @();
+        }
+    );
+    "policies"      = @( "Default Rule - All Events" );
+    "sorting"       = @(
+        @{
+            "aggregation" = "group-by-id-name-of-service-id-name";
+            "direction"   = "asc";
+            "column-name" = "Service";
+        },
+        @{
+            "aggregation" = "group-by";
+            "direction"   = "asc";
+            "column-name" = "Destination IP";
+        }
+    );
+    "display-name"  = "iris_report";
+    "report-format" = "pdf";
+    "time-frame"    =
+    @{
+        "from-to"   = $true;
+        "from-date" = 1533070800000;
+        "to-date"   = 1535317200000;
+    };
+    "report-id"     = "/secsph/audit-report[@dn='-1465549295']";
+    "scheduling"    = @{
+        "occurs"    = "recurring";
+        "recurring" = @{
+            "frequency"     = "Daily";
+            "daily"         = @{
+                "every-number-of-days" = 1
+            };
+            "starting-from" = "2021-08-29";
+            "at-time"       = "00:00:00";
+        }
+    }
+}
+
+New-SecureSphereDBAuditReport -ReportName "some report" -Report $Report
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:ReportName">-ReportName &lt;String&gt;
+</p><p>This parameter specifies the name of the report to create.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Report">-Report &lt;Array&gt;
+</p><p>This parameter specifies report parameters.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p>Remark 1</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/70927.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Get-SecureSphereReleasedSources</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Get-SecureSphereReleasedSources</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Get recently released sources ordered from older release to newer release.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Get-SecureSphereReleasedSources [&lt;CommonParameters&gt;]
+</div>
+</div>
+<p class="subheading">Parameter Set 2</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Get-SecureSphereReleasedSources [-Hours &lt;UInt32&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Get recently released sources ordered from older release to newer release.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Get-SecureSphereReleasedSources -Hours 48
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:Hours">-Hours &lt;UInt32&gt;
+</p><p>If set, hours = N, the API response will include the sources released in the last N hours. Default value is 72.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 2</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>72</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<p class="subheading">Response Body</p>
+<p>[{<BR/>&quot;blockedBy&quot;: &quot;IP&quot;,<BR/>&quot;ipAddress&quot;: &quot;1.1.97.88&quot;,<BR/>&quot;blockingTime&quot;: &quot;2019-11-27 22:01:53&quot;,<BR/>&quot;eventCount&quot;: 1,<BR/>&quot;lastEventTime&quot;: &quot;2019-11-27 22:01:53&quot;,<BR/>&quot;automaticReleaseTime&quot;: &quot;2019-11-27 22:04:53&quot;,<BR/>&quot;policy&quot;: &quot;Web Correlation Policy&quot;,<BR/>&quot;serverGroup&quot;: &quot;zofim_sg_001&quot;<BR/>},{<BR/>&quot;blockedBy&quot;: &quot;IP&quot;,<BR/>&quot;ipAddress&quot;: &quot;1.1.97.89&quot;,<BR/>&quot;blockingTime&quot;: &quot;2019-11-27 22:02:13&quot;,<BR/>&quot;eventCount&quot;: 1,<BR/>&quot;lastEventTime&quot;: &quot;2019-11-27 22:02:13&quot;,<BR/>&quot;manualReleaseTime&quot;: &quot;2019-11-27 22:05:13&quot;,<BR/>&quot;policy&quot;: &quot;Web Correlation Policy&quot;,<BR/>&quot;serverGroup&quot;: &quot;zofim_sg_001&quot;<BR/>}]</p>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p>None</p><BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/75969.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+

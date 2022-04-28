@@ -1,0 +1,203 @@
+﻿<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-16">
+<title>Set-SecureSphereWebEntireProfile</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="headerbar"><a href="#Name">NAME</a> | <a href="#Synopsis">SYNOPSIS</a> | <a href="#Syntax">SYNTAX</a> | <a href="#DetailedDescription">DESCRIPTION</a> | <a href="#Examples">EXAMPLES</a> | <a href="#Parameters">PARAMETERS</a> | <a href="#InputType">INPUTS</a> | <a href="#ReturnType">OUTPUTS</a> | <a href="#Notes">NOTES</a> | <a href="#RelatedLinks">RELATED LINKS</a></div>
+<p><a name="Name"></a></p>
+<h4 id="Name"></h4>
+<p class="title">Set-SecureSphereWebEntireProfile</p>
+<h4 id="Synopsis"><a name="Synopsis"></a>SYNOPSIS</h4>
+<p>Sets a Json object that represents the entire profile.</p>
+<h4 id="Syntax"><a name="Syntax"></a>SYNTAX</h4>
+<p class="subheading">Parameter Set 1 (Default)</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+Set-SecureSphereWebEntireProfile -SiteName &lt;String&gt; -ServerGroupName &lt;String&gt; -WebServiceName &lt;String&gt; -WebApplicationName &lt;String&gt; [-LearnedHosts &lt;String&gt;] [-PatternUrls &lt;WebProfilePatternUrl[]&gt;] [-Cookies &lt;WebProfileCookie[]&gt;] [-ActionUrls &lt;WebProfileLoginActionUrl[]&gt;] [-SusceptibleDirectories &lt;WebProfileSusceptibleDir[]&gt;] [-WebProfileUrls &lt;WebProfileUrl[]&gt;] [-Headers &lt;WebProfileHeader[]&gt;] [&lt;CommonParameters&gt;]
+</div>
+</div>
+<h4 id="DetailedDescription"><a name="DetailedDescription"></a>DESCRIPTION</h4>
+<p>Sets a Json object that represents the entire profile. The existing profile is overridden. All sections are treated as required. Meaning, if a section is missing (e.g. cookies section), then it is treated as empty and current cookies are deleted. The default for susceptibleDirectories is InLearning. Meaning, when this section is missing from the profile that is being set, all susceptible directories are set to learning.</p>
+<h4 id="Examples"><a name="Examples"></a>EXAMPLES</h4>
+<p class="subheading">EXAMPLE 1</p>
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetContainerCode">
+<pre>
+Set-SecureSphereWebEntireProfile -SiteName "Denver" -ServerGroupName "HR-Prod" -WebServiceName "ODS-WebService" -WebApplicationName "Official-Website" -....[other parameters]
+
+See https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66153.htm for example.
+Use classes as parameters. See notes of this cmdlet. Due to lack of official documenation for this parameter it is hard to give exact working example.
+</pre>
+</div>
+</div>
+<h4 id="Parameters"><a name="Parameters"></a>PARAMETERS</h4>
+<p class="subheading" id="parameter:SiteName">-SiteName &lt;String&gt;
+</p><p>This parameter specifies the name of the site.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ServerGroupName">-ServerGroupName &lt;String&gt;
+</p><p>This parameter specifies the name of the server group.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebServiceName">-WebServiceName &lt;String&gt;
+</p><p>This parameter specifies the name of the service.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebApplicationName">-WebApplicationName &lt;String&gt;
+</p><p>This parameter specifies the name of the web application.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>true</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:LearnedHosts">-LearnedHosts &lt;String&gt;
+</p><p>This parameter specifies the learned hosts.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:PatternUrls">-PatternUrls &lt;WebProfilePatternUrl[]&gt;
+</p><p>This parameter specifies the WebProfilePatternUrl type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Cookies">-Cookies &lt;WebProfileCookie[]&gt;
+</p><p>This parameter specifies the WebProfileCookie type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:ActionUrls">-ActionUrls &lt;WebProfileLoginActionUrl[]&gt;
+</p><p>This parameter specifies the WebProfileLoginActionUrl type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:SusceptibleDirectories">-SusceptibleDirectories &lt;WebProfileSusceptibleDir[]&gt;
+</p><p>This parameter specifies the WebProfileSusceptibleDir type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:WebProfileUrls">-WebProfileUrls &lt;WebProfileUrl[]&gt;
+</p><p>This parameter specifies the WebProfileUrl type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading" id="parameter:Headers">-Headers &lt;WebProfileHeader[]&gt;
+</p><p>This parameter specifies the WebProfileHeader type objects.</p>
+<table>
+<tr><td><p>Parameter Sets:</p></td><td><p>Parameter Set 1</p></td></tr>
+<tr><td><p>Aliases:</p></td><td><p>none</p></td></tr>
+<tr><td><p>Required:</p></td><td><p>false</p></td></tr>
+<tr><td><p>Position:</p></td><td><p>named</p></td></tr>
+<tr><td><p>Default Value:</p></td><td><p>None</p></td></tr>
+<tr><td><p>Pipeline Input:</p></td><td><p>False</p></td></tr>
+</table>
+<br/>
+<p class="subheading">&lt;CommonParameters&gt;</p><p>
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (<a href="http://go.microsoft.com/fwlink/?LinkID=113216">http://go.microsoft.com/fwlink/?LinkID=113216</a>).</p>
+<h4 id="InputType"><a name="InputType"></a>INPUTS</h4>
+<h4 id="ReturnType"><a name="ReturnType"></a>OUTPUTS</h4>
+<h4 id="Notes"><a name="Notes"></a>NOTES</h4>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfilePatternUrl<BR/>1. Pattern - String type.<BR/>2. Type - String type. Acceptable values: &quot;Prefix&quot; or &quot;Suffix&quot;<BR/>3. Status - String type. Acceptable values: &quot;InLearning&quot; or &quot;InProtection&quot;. Default value is InProtection.<BR/>4. ContentTypes - String type. Acceptable values: &quot;URL&quot; or &quot;XML&quot; or &quot;JSON&quot;. Default value is URL.<BR/>5. AllowedMethods - WebProfileAllowedMethod type. <BR/>6. Parameters - WebProfileParameter type.<BR/><BR/>Example:<BR/>$WebProfilePatternUrl = [WebProfilePatternUrl]::new()<BR/>$WebProfilePatternUrl.Pattern = &quot;myPattern&quot;<BR/>$WebProfilePatternUrl.Type = &quot;Prefix&quot;<BR/>$WebProfilePatternUrl.Status = &quot;InLearning&quot; <BR/>$WebProfilePatternUrl.ContentTypes = &quot;XML&quot;<BR/>$WebProfilePatternUrl.AllowedMethods = [WebProfileAllowedMethod type value or custom array or Json. Check WebProfileAllowedMethod object parameters]<BR/>$WebProfilePatternUrl.Parameters = [WebProfileParameter type value or custom array or Json. Check WebProfileParameter object parameters]<BR/><BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileCookie<BR/>1. Name - String type. Required.<BR/>2. Injection - Boolean type. Required. <BR/>3. Prefix - Boolean type. Required. <BR/>4. Status - String type. Acceptable values: &quot;Learn&quot; or &quot;Protect&quot; or &quot;Ignore&quot;. Default is Protect.<BR/><BR/>Example:<BR/>$WebProfileCookie = [WebProfileCookie]::new()<BR/>$WebProfileCookie.Name = &quot;some name&quot;<BR/>$WebProfileCookie.Injection = $true<BR/>$WebProfileCookie.Prefix = $false<BR/>$WebProfileCookie.Status = &quot;Learn&quot;</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileLoginActionUrl<BR/>1. Url - String type. Required.<BR/>2. Status - String type. Required. Acceptable values: &quot;InLearning&quot; or &quot;InProtection&quot; or &quot;Manual&quot;<BR/>3. UserField1 - String type.<BR/>4. UserField2 - String type.<BR/>5. DefaultDecision - String type. Acceptable values: &quot;Succeeded&quot; or &quot;Failed&quot; or &quot;CantTell&quot;.  Required.<BR/>6. DecisionRules - WebProfileLoginDecisionRule type.<BR/><BR/>Example:<BR/>$WebProfileLoginActionUrl = [WebProfileLoginActionUrl]::new()<BR/>$WebProfileLoginActionUrl.Url = &quot;/hello_world&quot;<BR/>$WebProfileLoginActionUrl.Status = &quot;Manual&quot;<BR/>$WebProfileLoginActionUrl.UserField1 = &quot;&quot;<BR/>$WebProfileLoginActionUrl.UserField2 = &quot;&quot;<BR/>$WebProfileLoginActionUrl.DefaultDecision = &quot;Succeeded&quot;<BR/>$WebProfileLoginActionUrl.DecisionRules  = [WebProfileLoginDecisionRule type value or custom array or Json. Check WebProfileLoginDecisionRule object parameters]<BR/><BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileSusceptibleDir<BR/>1. Name - String type. Required.<BR/>2. Status - String type. Required. Acceptable values: &quot;InLearning&quot; or &quot;InProtection&quot;<BR/><BR/>Example:<BR/>$WebProfileSusceptibleDir = [WebProfileSusceptibleDir]::new()<BR/>$WebProfileSusceptibleDir.Name = &quot;some name&quot;<BR/>$WebProfileSusceptibleDir.Status = &quot;InLearning&quot;</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileUrl<BR/>1. UrlFullPath - String type. Required when setting the entire profile. Not used when setting a single URL - value is taken from path parameter.<BR/>2. Status - String type. Acceptable values: &quot;InLearning&quot; or &quot;InProtection&quot;. Default is InProtection.<BR/>3. ContentTypes - String type. Acceptable values: &quot;URL&quot; or &quot;XML&quot; or &quot;JSON&quot;. Default is URL.<BR/>4. Locked - Boolean type. Default is false.<BR/>5. AllowedMethods - WebProfileAllowedMethod type.<BR/>6. Parameters - WebProfileParameter type.<BR/><BR/>Example:<BR/>$WebProfileUrl = [WebProfileUrl]::new()<BR/>$WebProfileUrl.UrlFullPath = &quot;https://some_url.com/hello_world&quot;<BR/>$WebProfileUrl.Status = &quot;InProtection&quot;<BR/>$WebProfileUrl.ContentTypes = &quot;JSON&quot;<BR/>$WebProfileUrl.Locked = $false<BR/>$WebProfileUrl.AllowedMethods = [WebProfileAllowedMethod type value or custom array or Json. Check WebProfileAllowedMethod object parameters]<BR/>$WebProfileUrl.Parameters = [WebProfileParameter type value or custom array or Json. Check WebProfileParameter object parameters]<BR/><BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileHeader<BR/>1. HeaderName - String type. Required.<BR/>2. Base64Encoded - Boolean type. Default is false.<BR/><BR/>Example:<BR/>$WebProfileHeader = [WebProfileHeader]::new()<BR/>$WebProfileHeader.HeaderName = &quot;Some name&quot;<BR/>$WebProfileHeader.Base64Encoded = &quot;some_base64_string&quot;</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileAllowedMethod<BR/>1. Status - String type. Required. Acceptable values: &quot;observed&quot; or &quot;decided&quot;.<BR/>2. Method - Type is unknown due to lack of documentation. It is specified &quot;legal http method&quot; though, but it is unknown what to specify exactly.<BR/><BR/>Example:<BR/>$WebProfileAllowedMethod = [WebProfileAllowedMethod]::new()<BR/>$WebProfileAllowedMethod.Status = &quot;observed&quot;<BR/>$WebProfileAllowedMethod.Method = [unknown what to specify]<BR/><BR/>Better check https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66153.htm. <BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileParameter<BR/>1. Name - String type. Required. <BR/>2. MinLength - UInt32 type. Required.<BR/>3. MaxLength - UInt32 type. Required.<BR/>4. Type - String type. Acceptable values: &quot;Numeric&quot; or &quot;Latin&quot; or &quot;UTF8&quot;. Default is Numeric.<BR/>5. Required - Boolean type.<BR/>6. ReadOnly - Boolean type.<BR/>7. Prefix - Boolean type.<BR/>8. Nullable - Boolean type.<BR/>9. AdditionalAllowedChars - String type. All the additional chars.<BR/>10. CustomValueType - String type.<BR/><BR/>Notes:<BR/>1. When customValueType is set, additionalAllowedChars and type cannot be set (see errors IMP-10137, IMP-10138)<BR/>2. If either additionalAllowedChars or type are set, customValueType cannot be set (see errors IMP-10137, IMP-10138)<BR/>3. Value for customValueType must be an existing Parameter Type Configuration (a global object)<BR/><BR/>Example:<BR/>$WebProfileParameter = [WebProfileParameter]::new()<BR/>$WebProfileParameter.Name = &quot;some name&quot;<BR/>$WebProfileParameter.MinLength = 1<BR/>$WebProfileParameter.MaxLength = 64<BR/>$WebProfileParameter.Type = &quot;UTF8&quot;<BR/>$WebProfileParameter.Required = $true<BR/>$WebProfileParameter.ReadOnly = $false<BR/>$WebProfileParameter.Prefix = $false<BR/>$WebProfileParameter.Nullable = $false<BR/>$WebProfileParameter.AdditionalAllowedChars = &quot;%&quot;<BR/>$WebProfileParameter.CustomValueType = &quot;TEST&quot;<BR/><BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>WebProfileLoginDecisionRule<BR/>1. Value - String type. Required.<BR/>2. Type - String type. Required. Acceptable values: &quot;Redirect&quot; or &quot;ResponseCode&quot; or &quot;Pattern&quot;<BR/>3. Result - String type. Required. Acceptable values: &quot;Succeeded&quot; or &quot;Failed&quot; or &quot;CantTell&quot;<BR/><BR/>Example:<BR/>$WebProfileLoginDecisionRule = [WebProfileLoginDecisionRule]::new()<BR/>$WebProfileLoginDecisionRule.Value = &quot;some value&quot;<BR/>$WebProfileLoginDecisionRule.Type = &quot;Redirect&quot;<BR/>$WebProfileLoginDecisionRule.Result = &quot;Succeeded&quot;<BR/><BR/>I recommend to get existing Web Entire Profile to find out which values to enter.</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>Legal Additional HTTP Methods:<BR/>BDELETE,LOCK,PROPPATCH<BR/>BPROPFIND,M_GET,PUT<BR/>BPROPPATCH,MKCOL,RMDIR<BR/>BMOVE,MKDIR,RPC_IN_DATA<BR/>CONNECT,MOVE,RPC_OUT_DATA<BR/>COPY,M_POST,SEARCH<BR/>DELETE,NOTIFY,SUBSCRIBE<BR/>GET,OPTIONS,TRACE<BR/>HEAD,PATCH,UNLINK<BR/>INDEX,POLL,UNLOCK<BR/>INVOKE,POST,UNSUBSCRIBE</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>Legal Additional Allowed Characters:<BR/>concatenation,period,plus<BR/>osRelatedSeparators,comma,brackets<BR/>asciiControlCharacters,percent,angledBrackets<BR/>lineBreaks,whiteSpaces,others<BR/>asterisk,parenthesis,quote<BR/>nullSign,doubleQuote,<BR/>slash,httpQuerySeparators,</p>
+<BR/>
+<p class="subheading">WebProfileLoginDecisionRule</p>
+<p>IMP-10006 - Site not found<BR/>IMP-10008 - Server Group not found<BR/>IMP-10014 - Application not found<BR/>IMP-10015 - Cannot create { } since the body parameter { } is missing<BR/>IMP-10016 - The {illegal string} entered is illegal<BR/>IMP-10017 - Service not found<BR/>IMP-10136 - A new URL cannot be added to profile: too many URLs<BR/>IMP-10137 - The parameter {param} cannot set both additional allowed character groups and custom value type.<BR/>IMP-10138 - The parameter {param} cannot set both primary value type and custom value type.<BR/>IMP-10139 - Cannot set custom value type with name {name} for parameter {param}. Parameter type configuration {name} not found.<BR/>IMP-10140 - Max value must be greater or equal to min value<BR/>IMP-10141 - Value must be greater than or equal to 0<BR/>IMP-10142 - The folder {folder} was not found in profile susceptible directories list.<BR/>IMP-10143 - The cookie {cookie} cannot set injection to true if the cookie is not in protect<BR/>IMP-10351 - Required field &#39;&#39;{BLANK_FIELD}&#39;&#39; cannot be left blank</p>
+<BR/>
+<h4 id="RelatedLinks"><a name="RelatedLinks"></a>RELATED LINKS</h4>
+<a href="https://github.com/akshinmustafayev/SecureSpherePS/tree/master/Documentation">Online Version:</a><br/>
+<a href="https://docs.imperva.com/bundle/v13.6-api-reference-guide/page/66152.htm">Official Documentation:</a><br/>
+
+</body>
+</html>
+
