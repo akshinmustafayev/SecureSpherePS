@@ -28,8 +28,6 @@ SecureSpherePS - PowerShell Module to manage Imperva SecureSphere 13.6. Automate
 
 ![image](images/image1.png)
 
----
-
 ## :wrench: Installation
 
 * Download the latest release or use direct link [SecureSpherePS.zip](https://github.com/akshinmustafayev/SecureSpherePS/releases/download/v0.1/SecureSpherePS.zip). 
