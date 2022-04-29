@@ -1,5 +1,6 @@
 # <img src="https://github.com/akshinmustafayev/SecureSpherePS/blob/master/images/powershelllogo.png" height="32" width="32"/> SecureSpherePS
 
+[![made-with-powershell](https://img.shields.io/badge/PowerShell-1f425f?logo=Powershell)](https://github.com/akshinmustafayev/SecureSpherePS)
 <a href="https://img.shields.io/github/license/akshinmustafayev/SecureSpherePS">
   <img src="https://img.shields.io/github/license/akshinmustafayev/SecureSpherePS" alt="License" />
 </a>
