@@ -26,7 +26,7 @@
 # 
 
 # Global Configuration
-$SecureSpherePSVersion = "v0.1"
+$SecureSpherePSVersion = "1.0.0"
 
 # Global variables
 $SecureSphereHost = ""

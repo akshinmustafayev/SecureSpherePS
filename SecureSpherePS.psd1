@@ -7,7 +7,7 @@
     RootModule        = 'SecureSpherePS.psm1'
     
     # Version number of this module.
-    ModuleVersion     = '0.1'
+    ModuleVersion     = '1.0.0'
     
     # ID used to uniquely identify this module
     GUID              = 'e1fa83db-0c39-40c6-ac68-858b57ff3b2e'
