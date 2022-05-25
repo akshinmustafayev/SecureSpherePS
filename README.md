@@ -31,6 +31,17 @@ SecureSpherePS - PowerShell Module to manage Imperva SecureSphere 13.6. Automate
 
 ## :wrench: Installation
 
+###### Simple installation
+
+Open PowerShell as Administrator and execute the following command:
+```
+Install-Module -Name SecureSpherePS
+```
+
+_Note: There must be access to internet, in order to download module from the PowerShell gallery._
+
+###### Advanced installation
+
 * Download the latest release or use direct link [SecureSpherePS.zip](https://github.com/akshinmustafayev/SecureSpherePS/releases/download/v0.1/SecureSpherePS.zip). 
 * Create folder __SecureSpherePS__ in __C:\Program Files\WindowsPowerShell\Modules__ directory.
 * Extract contents of ZIP archive to __C:\Program Files\WindowsPowerShell\Modules\SecureSpherePS__ folder.
