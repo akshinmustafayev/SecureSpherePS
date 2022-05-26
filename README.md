@@ -38,7 +38,7 @@ Open PowerShell as Administrator and execute the following command:
 Install-Module -Name SecureSpherePS
 ```
 
-_Note: There must be access to internet, in order to download module from the PowerShell gallery._
+_Note: There must be access to internet, in order to download module from the [PowerShell gallery](https://www.powershellgallery.com/packages/SecureSpherePS/1.0.0)._
 
 ###### Advanced installation
 
